@@ -1,0 +1,22 @@
+# general.import = ["~/.config/alacritty/themes/themes/mellow.toml"]
+# general.import = ["~/.config/alacritty/themes/themes/one_dark.toml"]
+# general.import = ["~/.config/alacritty/themes/themes/rose-pine.toml"]
+general.import = ["~/.config/alacritty/themes/themes/habamax.toml"]
+
+[colors]
+# primary.background = "#1B1D22"
+# primary.background = "#1C1C1C"
+
+[window]
+decorations = "buttonless"
+dynamic_padding = true
+option_as_alt = "OnlyLeft"
+startup_mode = "Maximized"
+
+[font]
+size = 18
+normal.family = "JetBrainsMono Nerd Font Propo"
+
+italic.style = "Regular"
+
+bold.style = "Regular"
