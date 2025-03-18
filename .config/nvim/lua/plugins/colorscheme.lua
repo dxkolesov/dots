@@ -3,6 +3,32 @@ return {
   { "folke/tokyonight.nvim", enabled = false },
   { "catppuccin/nvim", enabled = false },
 
+  -- vague
+  {
+    "vague2k/vague.nvim",
+    config = function()
+      require("vague").setup({
+        colors = {
+          bg = "#000000",
+        },
+      })
+    end,
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = function(_, opts)
+      opts.colorscheme = "vague"
+      vim.api.nvim_create_autocmd("ColorScheme", {
+        pattern = "*",
+        callback = function()
+          vim.api.nvim_set_hl(0, "VertSplit", { link = "CursorLineFold" })
+          vim.api.nvim_set_hl(0, "SnacksIndent", { fg = "#323232" })
+          vim.api.nvim_set_hl(0, "StatusLine", { bg = "#333333" })
+        end,
+      })
+    end,
+  },
+
   -- mellow
   -- {
   --   "mellow-theme/mellow.nvim",
@@ -124,28 +150,6 @@ return {
   --     colorscheme = "onedark",
   --   },
   -- },
-
-  -- vague
-  {
-    "vague2k/vague.nvim",
-    config = function()
-      require("vague").setup()
-    end,
-  },
-  {
-    "LazyVim/LazyVim",
-    opts = function(_, opts)
-      opts.colorscheme = "vague"
-      vim.api.nvim_create_autocmd("ColorScheme", {
-        pattern = "*",
-        callback = function()
-          vim.api.nvim_set_hl(0, "VertSplit", { link = "CursorLineFold" })
-          vim.api.nvim_set_hl(0, "SnacksIndent", { fg = "#323232" })
-          vim.api.nvim_set_hl(0, "StatusLine", { bg = "#333333" })
-        end,
-      })
-    end,
-  },
 
   -- rose-pine
   -- {

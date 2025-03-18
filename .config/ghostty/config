@@ -299,7 +299,8 @@ freetype-load-flags = hinting,force-autohint,monochrome,autohint
 theme = rose-pine
 
 # Background color for the window.
-background = #141415
+background = #000000
+# background = #141415
 
 # Foreground color for the window.
 # foreground = #ffffff

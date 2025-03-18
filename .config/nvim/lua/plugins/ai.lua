@@ -21,9 +21,9 @@ return {
     },
     opts = {
       keymaps = {
-        accept_suggestion = "<Tab>",
-        accept_word = "<A-a>",
-        clear_suggestion = "<A-e>",
+        accept_suggestion = "<C-y>",
+        clear_suggestion = "<C-]>",
+        accept_word = "<C-j>",
       },
       ignore_filetypes = { "bigfile", "snacks_input", "snacks_notif" },
     },
@@ -54,28 +54,28 @@ return {
   --   },
   --   keys = {
   --     {
-  --       "<Tab>",
+  --       "<C-y>",
   --       function()
   --         require("neocodeium").accept()
   --       end,
   --       mode = "i",
   --     },
   --     {
-  --       "<A-]>",
+  --       "<M-]>",
   --       function()
   --         require("neocodeium").cycle_or_complete()
   --       end,
   --       mode = "i",
   --     },
   --     {
-  --       "<A-[>",
+  --       "<M-[>",
   --       function()
   --         require("neocodeium").cycle_or_complete(-1)
   --       end,
   --       mode = "i",
   --     },
   --     {
-  --       "<A-e>",
+  --       "<C-]>",
   --       function()
   --         require("neocodeium").clear()
   --       end,
@@ -94,16 +94,16 @@ return {
   --   "Exafunction/codeium.vim",
   --   event = "InsertEnter",
   --   config = function()
-  --     vim.keymap.set("i", "<Tab>", function()
+  --     vim.keymap.set("i", "<C-y>", function()
   --       return vim.fn["codeium#Accept"]()
   --     end, { expr = true, silent = true })
-  --     vim.keymap.set("i", "<A-]>", function()
+  --     vim.keymap.set("i", "<M-]>", function()
   --       return vim.fn["codeium#CycleCompletions"](1)
   --     end, { expr = true, silent = true })
-  --     vim.keymap.set("i", "<A-[>", function()
+  --     vim.keymap.set("i", "<M-[>", function()
   --       return vim.fn["codeium#CycleCompletions"](-1)
   --     end, { expr = true, silent = true })
-  --     vim.keymap.set("i", "<A-e>", function()
+  --     vim.keymap.set("i", "<C-]>", function()
   --       return vim.fn["codeium#Clear"]()
   --     end, { expr = true, silent = true })
   --   end,
