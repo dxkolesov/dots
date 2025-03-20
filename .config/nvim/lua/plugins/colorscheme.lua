@@ -1,5 +1,5 @@
 return {
-
+  -- disable default
   { "folke/tokyonight.nvim", enabled = false },
   { "catppuccin/nvim", enabled = false },
 

@@ -1,6 +1,4 @@
 return {
-
-  -- which-key
   {
     "folke/which-key.nvim",
     optional = true,
@@ -11,7 +9,7 @@ return {
     },
   },
 
-  -- autocomplete
+  -- supermaven
   {
     "supermaven-inc/supermaven-nvim",
     event = "InsertEnter",
@@ -44,6 +42,7 @@ return {
     },
   },
 
+  -- neocodeium
   -- {
   --   "monkoose/neocodeium",
   --   cmd = "NeoCodeium",
@@ -90,6 +89,7 @@ return {
   --   },
   -- },
 
+  -- codeium
   -- {
   --   "Exafunction/codeium.vim",
   --   event = "InsertEnter",

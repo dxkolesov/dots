@@ -16,3 +16,7 @@ set("n", "N", "Nzzzv", { desc = "Previous search result centered", silent = true
 
 -- utility
 set("i", "<C-c>", "<Esc>", { desc = "Exit insert mode", silent = true })
+
+-- searching history in command line
+set("c", "<C-j>", "<Down>", { desc = "Next command" })
+set("c", "<C-k>", "<Up>", { desc = "Previous command" })
