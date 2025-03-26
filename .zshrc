@@ -174,6 +174,7 @@ alias cd="z"
 
 # ---- Neovim ----
 alias vim="nvim"
+alias vi="nvim"
 
 # pnpm
 export PNPM_HOME="/Users/dmitriikolesov/Library/pnpm"
