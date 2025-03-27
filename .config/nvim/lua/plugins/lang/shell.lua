@@ -38,20 +38,20 @@ return {
     optional = true,
     opts = {
       formatters_by_ft = {
-        ["sh"] = { "shfmt" },
-        ["zsh"] = { "shfmt" },
-        ["bash"] = { "shfmt" },
+        sh = { "shfmt", "shellcheck" },
+        zsh = { "shfmt", "shellcheck" },
+        bash = { "shfmt", "shellcheck" },
       },
     },
   },
 
   -- lint
-  -- {
-  --   "mfussenegger/nvim-lint",
-  --   opts = {
-  --     linters_by_ft = {
-  --       sh = { "shellcheck" },
-  --     },
-  --   },
-  -- },
+  {
+    "mfussenegger/nvim-lint",
+    opts = {
+      linters_by_ft = {
+        sh = { "shellcheck" },
+      },
+    },
+  },
 }

@@ -60,19 +60,24 @@ return {
     "neovim/nvim-lspconfig",
     ---@class PluginLspOpts
     opts = function(_, opts)
-      ---@type lspconfig.options
       -- add border
       require("lspconfig.ui.windows").default_options.border = "single"
 
-      -- border for floating windows
-      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
-      vim.lsp.handlers["textDocument/signatureHelp"] =
-        vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
+      -- diagnostic border
       vim.diagnostic.config({ float = { border = "single" } })
 
-      -- disable <c-k>
+      -- hover border
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
-      keys[#keys + 1] = { mode = "i", "<C-k>", false }
+      for _, key in ipairs(keys) do
+        if key[1] == "K" then
+          key[2] = function()
+            return vim.lsp.buf.hover({ border = "single" })
+          end
+          break
+        end
+      end
+
+      opts.keys = keys
     end,
   },
 
