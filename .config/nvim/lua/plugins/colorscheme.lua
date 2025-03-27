@@ -22,6 +22,7 @@ return {
         pattern = "*",
         callback = function()
           vim.api.nvim_set_hl(0, "VertSplit", { link = "CursorLineFold" })
+          vim.api.nvim_set_hl(0, "TreesitterContext", { link = "CursorLine" })
           vim.api.nvim_set_hl(0, "SnacksIndent", { fg = "#323232" })
           vim.api.nvim_set_hl(0, "StatusLine", { bg = "#333333" })
         end,
