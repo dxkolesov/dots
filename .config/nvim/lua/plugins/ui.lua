@@ -157,7 +157,9 @@ return {
 
         always_show_bufferline = true,
         show_buffer_close_icons = false,
-        separator_style = "slant",
+        indicator = {
+          style = "none",
+        },
         offsets = {
           {
             filetype = "snacks_layout_box",

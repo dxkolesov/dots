@@ -9,3 +9,4 @@ opt.list = false
 opt.showmode = true
 opt.ruler = true
 opt.statusline = "%<%f %h%m%r%=%-14.(%l:%L, %c%V%) %P"
+opt.spelllang = "en,ru"

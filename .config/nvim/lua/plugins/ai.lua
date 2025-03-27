@@ -26,13 +26,6 @@ return {
       ignore_filetypes = { "bigfile", "snacks_input", "snacks_notif" },
     },
 
-    -- disable on startup
-    config = function(_, opts)
-      require("supermaven-nvim").setup(opts)
-      local api = require("supermaven-nvim.api")
-      api.stop()
-    end,
-
     keys = {
       {
         "<leader>a,",
