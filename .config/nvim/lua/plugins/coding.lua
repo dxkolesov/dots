@@ -53,6 +53,8 @@ return {
         },
         keymap = {
           ["<CR>"] = { "accept_and_enter", "fallback" },
+          ["<Right>"] = { "fallback" },
+          ["<Left>"] = { "fallback" },
         },
       },
 

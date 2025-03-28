@@ -4,6 +4,7 @@ tap 'homebrew/bundle'
 # Casks
 cask 'betterdisplay'
 cask 'blender'
+cask 'chatgpt'
 cask 'command-x'
 cask 'discord'
 cask 'firefox'
