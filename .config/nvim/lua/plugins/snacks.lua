@@ -29,7 +29,7 @@ return {
             -- explorer width
             layout = {
               layout = {
-                width = 30,
+                width = 0.2,
               },
             },
           },

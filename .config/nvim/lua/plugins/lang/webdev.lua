@@ -12,12 +12,13 @@ return {
   -- mason
   {
     "williamboman/mason.nvim",
-    opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, {
+    opts = {
+      ensure_installed = {
         -- formatters
         "prettierd",
-      })
-    end,
+        -- "dprint",
+      },
+    },
   },
 
   -- lspconfig
@@ -38,49 +39,23 @@ return {
     "stevearc/conform.nvim",
     optional = true,
     opts = {
-      formatters_by_ft = (function()
-        local prettier_filetypes = {
-          "astro",
-          "css",
-          "graphql",
-          "html",
-          "javascript",
-          "javascriptreact",
-          "json",
-          "jsonc",
-          "less",
-          "markdown",
-          "markdown.mdx",
-          "postcss",
-          "pug",
-          "sass",
-          "scss",
-          "svelte",
-          "typescript",
-          "typescriptreact",
-          "vue",
-          "yaml",
-        }
+      formatters_by_ft = {
+        astro = {
+          "prettierd",
+          "prettier",
+          stop_after_first = true,
+        },
+      },
 
-        local result = {}
-        for _, ft in ipairs(prettier_filetypes) do
-          result[ft] = { "prettierd", "prettier", stop_after_first = true }
-        end
-
-        return result
-      end)(),
+      -- formatters = {
+      --   dprint = {
+      --     condition = function(_, ctx)
+      --       return vim.fs.find({ "dprint.json" }, { path = ctx.filename, upward = true })[1]
+      --     end,
+      --   },
+      -- },
     },
   },
-
-  -- lint
-  -- {
-  --   "mfussenegger/nvim-lint",
-  --   opts = {
-  --     linters_by_ft = {
-  --       javascript = { "eslint_d" },
-  --     },
-  --   },
-  -- },
 
   -- tsc
   {
@@ -156,5 +131,13 @@ return {
       "python",
       "cs",
     },
+  },
+
+  -- package info
+  {
+    "vuki656/package-info.nvim",
+    dependencies = { "MunifTanjim/nui.nvim" },
+    opts = {},
+    event = "BufRead package.json",
   },
 }

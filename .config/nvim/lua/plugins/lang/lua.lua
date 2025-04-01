@@ -1,14 +1,4 @@
 return {
-  -- treesitter
-  -- {
-  --   "nvim-treesitter/nvim-treesitter",
-  --   opts = function(_, opts)
-  --     vim.list_extend(opts.ensure_installed, {
-  --       "lua",
-  --     })
-  --   end,
-  -- },
-
   -- mason
   {
     "williamboman/mason.nvim",
@@ -20,27 +10,6 @@ return {
       })
     end,
   },
-
-  -- lspconfig
-  -- {
-  --   "neovim/nvim-lspconfig",
-  --   opts = {
-  --     servers = {
-  --       lua_ls = {},
-  --     },
-  --   },
-  -- },
-
-  -- formatter
-  -- {
-  --   "stevearc/conform.nvim",
-  --   optional = true,
-  --   opts = {
-  --     formatters_by_ft = {
-  --       ["lua"] = { "stylua" },
-  --     },
-  --   },
-  -- },
 
   -- lint
   {

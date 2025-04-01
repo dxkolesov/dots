@@ -43,14 +43,4 @@ return {
       },
     },
   },
-
-  -- lint
-  -- {
-  --   "mfussenegger/nvim-lint",
-  --   opts = {
-  --     linters_by_ft = {
-  --       glsl = { "glslang_validator" },
-  --     },
-  --   },
-  -- },
 }

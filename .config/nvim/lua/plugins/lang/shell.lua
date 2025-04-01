@@ -1,14 +1,4 @@
 return {
-  -- treesitter
-  -- {
-  --   "nvim-treesitter/nvim-treesitter",
-  --   opts = function(_, opts)
-  --     vim.list_extend(opts.ensure_installed, {
-  --       "bash",
-  --     })
-  --   end,
-  -- },
-
   -- mason
   {
     "williamboman/mason.nvim",
@@ -16,21 +6,9 @@ return {
       vim.list_extend(opts.ensure_installed, {
         -- formatters
         "shfmt",
-        -- linters
-        -- "shellcheck",
       })
     end,
   },
-
-  -- lspconfig
-  -- {
-  --   "neovim/nvim-lspconfig",
-  --   opts = {
-  --     servers = {
-  --       bashls = {},
-  --     },
-  --   },
-  -- },
 
   -- formatter
   {
