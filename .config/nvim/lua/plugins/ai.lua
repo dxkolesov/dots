@@ -1,18 +1,8 @@
 return {
-  {
-    "folke/which-key.nvim",
-    optional = true,
-    opts = {
-      spec = {
-        { "<leader>a", group = "ai", mode = { "n", "v" } },
-      },
-    },
-  },
-
   -- neocodeium
   {
     "monkoose/neocodeium",
-    event = "BufReadPost",
+    event = "InsertEnter",
     opts = {
       silent = true,
       show_label = false,
@@ -58,18 +48,13 @@ return {
         mode = "i",
         desc = "Neocodeium Clear",
       },
-      {
-        "<leader>a,",
-        "<cmd>CodeiumToggle<cr>",
-        desc = "Toggle Codeium",
-      },
     },
   },
 
   -- codeium
   -- {
   --   "Exafunction/codeium.vim",
-  --   event = "BufReadPost",
+  --   event = "InsertEnter",
   --   keys = {
   --     {
   --       "<M-l>",
@@ -111,11 +96,6 @@ return {
   --       mode = "i",
   --       desc = "Codeium Clear",
   --     },
-  --     {
-  --       "<leader>a,",
-  --       "<cmd>CodeiumToggle<cr>",
-  --       desc = "Toggle Codeium",
-  --     },
   --   },
   -- },
 
@@ -123,7 +103,7 @@ return {
   -- {
   --   "zbirenbaum/copilot.lua",
   --   build = ":Copilot auth",
-  --   event = "BufReadPost",
+  --   event = "InsertEnter",
   --   opts = {
   --     filetypes = { ["*"] = true },
   --     suggestion = {
@@ -163,14 +143,6 @@ return {
   --       accept_word = "<C-j>",
   --     },
   --     ignore_filetypes = { "bigfile", "snacks_input", "snacks_notif" },
-  --   },
-  --
-  --   keys = {
-  --     {
-  --       "<leader>a,",
-  --       "<cmd>SupermavenToggle<cr>",
-  --       desc = "Toggle Supermaven",
-  --     },
   --   },
   -- },
 }
