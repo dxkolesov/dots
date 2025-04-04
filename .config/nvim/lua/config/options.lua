@@ -11,3 +11,5 @@ opt.ruler = true
 opt.statusline = "%<%f %h%m%r%=%-14.(%l:%L, %c%V%) %P"
 opt.spelllang = "en,ru"
 opt.colorcolumn = "80"
+
+vim.g.deprecation_warnings = true

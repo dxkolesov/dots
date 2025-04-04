@@ -60,6 +60,10 @@ return {
 
       keymap = {
         ["<C-y>"] = { "accept", "fallback" },
+
+        -- hide on ai completions cycle
+        ["<M-]>"] = { "hide", "fallback" },
+        ["<M-[>"] = { "hide", "fallback" },
       },
     },
   },
