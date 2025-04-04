@@ -41,28 +41,6 @@ return {
       }
 
       -- dashboard
-      -- keys
-      local new_keys = {
-        {
-          icon = " ",
-          key = "b",
-          desc = "Browse Repo",
-          action = function()
-            Snacks.gitbrowse()
-          end,
-        },
-        {
-          {
-            icon = "󰒲 ",
-            key = "L",
-            desc = "LazyVim Changelog",
-            action = "<Leader>L",
-            enabled = package.loaded.lazy ~= nil,
-          },
-        },
-      }
-      vim.list_extend(opts.dashboard.preset.keys, new_keys)
-
       -- header
       local cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ":~")
       if #cwd > 60 then

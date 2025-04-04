@@ -2,7 +2,7 @@ return {
   -- colorizer
   {
     "brenoprata10/nvim-highlight-colors",
-    event = "BufReadPre",
+    event = "LazyFile",
     cmd = "HighlightColors",
     opts = {
       enable_tailwind = true,
@@ -105,13 +105,6 @@ return {
     },
   },
 
-  -- text-case
-  {
-    "johmsalas/text-case.nvim",
-    opts = {},
-    cmd = "Subs",
-  },
-
   -- vim-be-good
   {
     "ThePrimeagen/vim-be-good",
@@ -137,9 +130,6 @@ return {
     opts = function(_, opts)
       -- add border
       require("lspconfig.ui.windows").default_options.border = "single"
-
-      -- diagnostic border
-      vim.diagnostic.config({ float = { border = "single" } })
 
       -- hover border
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
@@ -169,5 +159,12 @@ return {
         },
       },
     },
+  },
+
+  -- ghostty config file highlighting
+  {
+    "ghostty",
+    dir = "/Applications/Ghostty.app/Contents/Resources/vim/vimfiles/",
+    lazy = false,
   },
 }

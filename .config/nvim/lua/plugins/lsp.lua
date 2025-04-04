@@ -13,6 +13,15 @@ return {
       inlay_hints = {
         enabled = false,
       },
+      diagnostics = {
+        float = {
+          source = true,
+          border = "single",
+        },
+        virtual_text = {
+          source = true,
+        },
+      },
     },
   },
 

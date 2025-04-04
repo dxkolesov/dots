@@ -2,13 +2,12 @@ return {
   -- mason
   {
     "williamboman/mason.nvim",
-    opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, {
-        -- linters
+    opts = {
+      ensure_installed = {
         "selene",
         "luacheck",
-      })
-    end,
+      },
+    },
   },
 
   -- lint

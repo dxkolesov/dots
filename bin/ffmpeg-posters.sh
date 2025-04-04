@@ -33,7 +33,8 @@ process_video() {
   local file="$1"
 
   # Get the filename without extension
-  local filename=$(basename -- "$file")
+  local filename
+  filename=$(basename -- "$file")
   local name="${filename%.*}"
 
   echo "Processing $filename..."
@@ -45,7 +46,8 @@ process_video() {
   fi
 
   # Create temporary directory for intermediate files
-  local temp_dir=$(mktemp -d)
+  local temp_dir
+  temp_dir=$(mktemp -d)
 
   # Extract frame and create full-size poster
   if ffmpeg -i "$file" -ss 00:00:00 -frames:v 1 -q:v 2 "$temp_dir/${name}.jpg" -y -v error; then

@@ -25,7 +25,8 @@ convert_to_silent() {
   local file="$1"
 
   # Get the filename without extension
-  local filename=$(basename -- "$file")
+  local filename
+  filename=$(basename -- "$file")
   local name="${filename%.*}"
   local output="$VIDEO_DEST_DIR/${name}.mp4"
 
