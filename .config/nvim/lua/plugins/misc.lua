@@ -117,11 +117,4 @@ return {
       },
     },
   },
-
-  -- ghostty config file highlighting
-  {
-    "ghostty",
-    dir = "/Applications/Ghostty.app/Contents/Resources/vim/vimfiles/",
-    lazy = false,
-  },
 }
