@@ -24,18 +24,14 @@ return {
 
         sources = {
           explorer = {
-            -- show hidden files in explorer
-            hidden = true,
-            -- explorer width
             layout = {
+              -- explorer width
               layout = {
                 width = 0.2,
               },
+              -- hide input
+              hidden = { "input" },
             },
-          },
-          -- show hidden files in files
-          files = {
-            hidden = true,
           },
         },
       }

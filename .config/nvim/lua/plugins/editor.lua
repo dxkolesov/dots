@@ -1,23 +1,53 @@
 return {
-  -- oil
+  -- tabs
   {
-    "stevearc/oil.nvim",
+    "akinsho/bufferline.nvim",
+    dependencies = "echasnovski/mini.icons",
     opts = {
-      skip_confirm_for_simple_edits = true,
-      view_options = {
-        show_hidden = true,
+      options = {
+        -- relative buffer numbers
+        numbers = function(opts)
+          local state = require("bufferline.state")
+          for i, buf in ipairs(state.components) do
+            if buf.id == opts.id then
+              return i
+            end
+          end
+          return opts.ordinal
+        end,
+
+        always_show_bufferline = true,
+        show_buffer_close_icons = false,
+        indicator = {
+          style = "none",
+        },
+        offsets = {
+          {
+            filetype = "snacks_layout_box",
+            -- highlight = "Directory",
+          },
+        },
       },
-      keymaps = {
-        ["<C-s>"] = false,
+
+      highlights = {
+        buffer_selected = {
+          italic = false,
+        },
+        numbers_selected = {
+          italic = false,
+        },
       },
     },
-    keys = {
-      {
-        "-",
-        "<CMD>Oil<CR>",
-        mode = { "n", "v" },
-        desc = "Open oil",
-      },
-    },
+    keys = (function()
+      local keys = {}
+      for i = 1, 9 do
+        table.insert(keys, {
+          "<leader>" .. i,
+          "<cmd>lua require('bufferline').go_to_buffer(" .. i .. ", true)<cr>",
+          desc = "which_key_ignore",
+        })
+      end
+      return keys
+    end)(),
   },
 }

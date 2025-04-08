@@ -5,7 +5,15 @@ return {
       -- fidget
       {
         "j-hui/fidget.nvim",
-        opts = {},
+        opts = {
+          notification = {
+            window = {
+              border = "single",
+              normal_hl = "NormalFloat",
+              winblend = 1,
+            },
+          },
+        },
       },
     },
     ---@class PluginLspOpts
