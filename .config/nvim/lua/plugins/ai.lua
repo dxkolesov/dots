@@ -1,55 +1,72 @@
 return {
-  -- neocodeium
+  -- supermaven
   {
-    "monkoose/neocodeium",
+    "supermaven-inc/supermaven-nvim",
     event = "InsertEnter",
-    opts = {
-      silent = true,
-      show_label = false,
+    cmd = {
+      "SupermavenUseFree",
+      "SupermavenUsePro",
     },
-    keys = {
-      {
-        "<M-l>",
-        function()
-          require("neocodeium").accept()
-        end,
-        expr = true,
-        silent = true,
-        mode = "i",
-        desc = "Neocodeium Accept",
+    opts = {
+      keymaps = {
+        accept_suggestion = "<M-l>",
+        clear_suggestion = "<C-]>",
       },
-      {
-        "<M-]>",
-        function()
-          require("neocodeium").cycle_or_complete()
-        end,
-        expr = true,
-        silent = true,
-        mode = "i",
-        desc = "Neocodeium Next Completion",
-      },
-      {
-        "<M-[>",
-        function()
-          require("neocodeium").cycle_or_complete(-1)
-        end,
-        expr = true,
-        silent = true,
-        mode = "i",
-        desc = "Neocodeium Previous Completion",
-      },
-      {
-        "<C-]>",
-        function()
-          require("neocodeium").clear()
-        end,
-        expr = true,
-        silent = true,
-        mode = "i",
-        desc = "Neocodeium Clear",
-      },
+      ignore_filetypes = { "bigfile", "snacks_input", "snacks_notif" },
     },
   },
+
+  -- neocodeium
+  -- {
+  --   "monkoose/neocodeium",
+  --   event = "InsertEnter",
+  --   opts = {
+  --     silent = true,
+  --     show_label = false,
+  --   },
+  --   keys = {
+  --     {
+  --       "<M-l>",
+  --       function()
+  --         require("neocodeium").accept()
+  --       end,
+  --       expr = true,
+  --       silent = true,
+  --       mode = "i",
+  --       desc = "Neocodeium Accept",
+  --     },
+  --     {
+  --       "<M-]>",
+  --       function()
+  --         require("neocodeium").cycle_or_complete()
+  --       end,
+  --       expr = true,
+  --       silent = true,
+  --       mode = "i",
+  --       desc = "Neocodeium Next Completion",
+  --     },
+  --     {
+  --       "<M-[>",
+  --       function()
+  --         require("neocodeium").cycle_or_complete(-1)
+  --       end,
+  --       expr = true,
+  --       silent = true,
+  --       mode = "i",
+  --       desc = "Neocodeium Previous Completion",
+  --     },
+  --     {
+  --       "<C-]>",
+  --       function()
+  --         require("neocodeium").clear()
+  --       end,
+  --       expr = true,
+  --       silent = true,
+  --       mode = "i",
+  --       desc = "Neocodeium Clear",
+  --     },
+  --   },
+  -- },
 
   -- codeium
   -- {
@@ -125,24 +142,6 @@ return {
   --       "<cmd>Copilot toggle<cr>",
   --       desc = "Toggle Copilot",
   --     },
-  --   },
-  -- },
-
-  -- supermaven
-  -- {
-  --   "supermaven-inc/supermaven-nvim",
-  --   event = "InsertEnter",
-  --   cmd = {
-  --     "SupermavenUseFree",
-  --     "SupermavenUsePro",
-  --   },
-  --   opts = {
-  --     keymaps = {
-  --       accept_suggestion = "<M-l>",
-  --       clear_suggestion = "<C-]>",
-  --       accept_word = "<C-j>",
-  --     },
-  --     ignore_filetypes = { "bigfile", "snacks_input", "snacks_notif" },
   --   },
   -- },
 }
