@@ -14,6 +14,12 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
+        "emmet-language-server",
+        "stylelint-lsp",
+        "css-variables-language-server",
+        "cssmodules-language-server",
+        "some-sass-language-server",
+
         "prettierd",
         -- "dprint",
       },
@@ -42,6 +48,27 @@ return {
     },
   },
 
+  -- px to rem
+  {
+    "saghen/blink.cmp",
+    dependencies = {
+      { "jsongerber/nvim-px-to-rem", config = true },
+    },
+    opts = function(_, opts)
+      opts.sources = opts.sources or {}
+
+      opts.sources.default = opts.sources.default or {}
+      table.insert(opts.sources.default, "nvim-px-to-rem")
+
+      opts.sources.providers = opts.sources.providers or {}
+      opts.sources.providers["nvim-px-to-rem"] = {
+        module = "nvim-px-to-rem.integrations.blink",
+        name = "nvim-px-to-rem",
+      }
+      return opts
+    end,
+  },
+
   -- tsc
   {
     "dmmulroy/tsc.nvim",
@@ -68,6 +95,17 @@ return {
       "JobStop",
     },
     opts = {},
+  },
+
+  -- colorizer
+  {
+    "brenoprata10/nvim-highlight-colors",
+    event = "LazyFile",
+    cmd = "HighlightColors",
+    opts = {
+      enable_tailwind = true,
+      enabled_named_colors = false,
+    },
   },
 
   -- tailwind values

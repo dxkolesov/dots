@@ -71,27 +71,6 @@ return {
     },
   },
 
-  -- add nvim_px_to_rem
-  {
-    "saghen/blink.cmp",
-    dependencies = {
-      { "jsongerber/nvim-px-to-rem", config = true },
-    },
-    opts = function(_, opts)
-      opts.sources = opts.sources or {}
-
-      opts.sources.default = opts.sources.default or {}
-      table.insert(opts.sources.default, "nvim-px-to-rem")
-
-      opts.sources.providers = opts.sources.providers or {}
-      opts.sources.providers["nvim-px-to-rem"] = {
-        module = "nvim-px-to-rem.integrations.blink",
-        name = "nvim-px-to-rem",
-      }
-      return opts
-    end,
-  },
-
   -- cmdline wilder
   -- {
   --   "gelguy/wilder.nvim",

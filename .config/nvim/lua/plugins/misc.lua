@@ -1,15 +1,4 @@
 return {
-  -- colorizer
-  {
-    "brenoprata10/nvim-highlight-colors",
-    event = "LazyFile",
-    cmd = "HighlightColors",
-    opts = {
-      enable_tailwind = true,
-      enabled_named_colors = false,
-    },
-  },
-
   -- tmux
   {
     "christoomey/vim-tmux-navigator",
