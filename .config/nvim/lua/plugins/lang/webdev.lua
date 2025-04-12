@@ -22,6 +22,8 @@ return {
 
         "prettierd",
         -- "dprint",
+
+        "htmlhint",
       },
     },
   },
@@ -45,6 +47,27 @@ return {
       --     end,
       --   },
       -- },
+    },
+  },
+
+  -- lint
+  {
+    "mfussenegger/nvim-lint",
+    opts = {
+      linters_by_ft = {
+        html = { "htmlhint" },
+      },
+      linters = {
+        htmlhint = {
+          condition = function(ctx)
+            local root = LazyVim.root.get({ normalize = true })
+            if root ~= vim.uv.cwd() then
+              return false
+            end
+            return vim.fs.find({ ".htmlhintrc" }, { path = root, upward = true })[1]
+          end,
+        },
+      },
     },
   },
 
