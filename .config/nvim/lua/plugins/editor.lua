@@ -50,4 +50,16 @@ return {
       { "<leader>9", "<cmd>lua require('bufferline').go_to_buffer(9, true)<cr>", desc = "which_key_ignore" },
     },
   },
+
+  -- file name in split
+  {
+    "b0o/incline.nvim",
+    event = "LazyFile",
+    opts = {
+      hide = {
+        only_win = true,
+        focused_win = true,
+      },
+    },
+  },
 }

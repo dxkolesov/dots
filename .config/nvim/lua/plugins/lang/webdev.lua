@@ -14,16 +14,18 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
+        "html-lsp",
         "emmet-language-server",
-        "stylelint-lsp",
+        "htmlhint",
+
+        "css-lsp",
         "css-variables-language-server",
         "cssmodules-language-server",
         "some-sass-language-server",
+        "stylelint-lsp",
 
         "prettierd",
         -- "dprint",
-
-        "htmlhint",
       },
     },
   },
@@ -74,6 +76,7 @@ return {
   -- px to rem
   {
     "saghen/blink.cmp",
+    optional = true,
     dependencies = {
       { "jsongerber/nvim-px-to-rem", config = true },
     },

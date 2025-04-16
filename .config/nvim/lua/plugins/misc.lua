@@ -19,6 +19,24 @@ return {
     },
   },
 
+  -- rainbow parentheses
+  {
+    "HiPhish/rainbow-delimiters.nvim",
+    main = "rainbow-delimiters.setup",
+    event = "LazyFile",
+    opts = {
+      highlight = {
+        "Constant",
+        "Type",
+        "Function",
+        "Number",
+        "String",
+        "Keyword",
+        "Special",
+      },
+    },
+  },
+
   -- obsidian
   {
     "obsidian-nvim/obsidian.nvim",
