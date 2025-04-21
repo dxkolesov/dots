@@ -112,7 +112,7 @@ return {
   {
     "LudoPinelli/comment-box.nvim",
     keys = {
-      { "<leader>C", "", desc = "+comment-box", mode = { "n", "v" } },
+      { "<leader>C", "", desc = "+commentbox", mode = { "n", "v" } },
       {
         "<leader>Cb",
         "<cmd>CBccbox<cr>",
