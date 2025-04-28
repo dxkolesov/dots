@@ -28,8 +28,9 @@ return {
 
           -- remove fg color from 'PmenuSel' hl
           local PMenuSelHl = vim.api.nvim_get_hl(0, { name = "PmenuSel" })
-          PMenuSelHl.fg = nil
-          vim.api.nvim_set_hl(0, "PmenuSel", PMenuSelHl)
+          local updatedPMenuSelHl = vim.tbl_extend("keep", {}, PMenuSelHl)
+          updatedPMenuSelHl.fg = nil
+          vim.api.nvim_set_hl(0, "PmenuSel", updatedPMenuSelHl)
         end,
       })
     end,

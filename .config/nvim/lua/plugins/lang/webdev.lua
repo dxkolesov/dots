@@ -178,4 +178,17 @@ return {
     opts = {},
     event = "BufRead package.json",
   },
+
+  -- import cost
+  {
+    "barrett-ruth/import-cost.nvim",
+    build = "sh install.sh npm",
+    opts = {},
+    ft = {
+      "typescript",
+      "javascript",
+      "typescriptreact",
+      "javascriptreact",
+    },
+  },
 }

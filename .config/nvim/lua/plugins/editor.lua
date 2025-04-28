@@ -62,4 +62,49 @@ return {
       },
     },
   },
+
+  -- replace with text-case
+  {
+    "johmsalas/text-case.nvim",
+    opts = {},
+    cmd = "Subs",
+  },
+
+  -- tmux
+  {
+    "christoomey/vim-tmux-navigator",
+    cmd = {
+      "TmuxNavigateLeft",
+      "TmuxNavigateDown",
+      "TmuxNavigateUp",
+      "TmuxNavigateRight",
+      "TmuxNavigatePrevious",
+      "TmuxNavigatorProcessList",
+    },
+    keys = {
+      { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+      { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+      { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+      { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+    },
+  },
+
+  -- rainbow parentheses
+  {
+    "HiPhish/rainbow-delimiters.nvim",
+    main = "rainbow-delimiters.setup",
+    event = "LazyFile",
+    opts = {
+      highlight = {
+        "Constant",
+        "Type",
+        "Function",
+        "Number",
+        "String",
+        "Keyword",
+        "Special",
+      },
+    },
+  },
 }

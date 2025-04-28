@@ -158,13 +158,6 @@ return {
     },
   },
 
-  -- text-case
-  {
-    "johmsalas/text-case.nvim",
-    opts = {},
-    cmd = "Subs",
-  },
-
   -- comment box
   {
     "LudoPinelli/comment-box.nvim",
