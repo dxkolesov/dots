@@ -1,0 +1,3 @@
+# BUG: disable git status due performance issues
+[git_status]
+disabled = true
