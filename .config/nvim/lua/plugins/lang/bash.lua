@@ -16,7 +16,6 @@ return {
       formatters_by_ft = {
         sh = { "shfmt", "shellcheck" },
         zsh = { "shfmt", "shellcheck" },
-        bash = { "shfmt", "shellcheck" },
       },
     },
   },
@@ -27,6 +26,7 @@ return {
     opts = {
       linters_by_ft = {
         sh = { "shellcheck" },
+        zsh = { "shellcheck" },
       },
     },
   },
