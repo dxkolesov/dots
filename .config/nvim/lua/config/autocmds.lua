@@ -18,22 +18,26 @@ autocmd("BufEnter", {
 
 -- show cursor line only in active window
 autocmd({ "InsertLeave", "WinEnter" }, {
-  group = vim.api.nvim_create_augroup("ShowCursorLine", { clear = true }),
-  callback = function(event)
-    local buftype = vim.bo[event.buf].buftype
-    local filetype = vim.bo[event.buf].filetype
-    if buftype ~= "nofile" and filetype ~= "NvimTree" then
+  callback = function()
+    if vim.w.auto_cursorline then
       vim.wo.cursorline = true
+      vim.w.auto_cursorline = nil
     end
   end,
 })
 autocmd({ "InsertEnter", "WinLeave" }, {
-  group = vim.api.nvim_create_augroup("HideCursorLine", { clear = true }),
-  callback = function(event)
-    local buftype = vim.bo[event.buf].buftype
-    local filetype = vim.bo[event.buf].filetype
-    if buftype ~= "nofile" and filetype ~= "NvimTree" then
+  callback = function()
+    if vim.wo.cursorline then
+      vim.w.auto_cursorline = true
       vim.wo.cursorline = false
     end
+  end,
+})
+
+-- open the explorer after loading session
+autocmd({ "User" }, {
+  pattern = "PersistenceLoadPost",
+  callback = function()
+    Snacks.explorer({ cwd = LazyVim.root(), focus = false })
   end,
 })
