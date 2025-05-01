@@ -14,3 +14,6 @@ set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up and center", silent = true })
 set("n", "n", "nzzzv", { desc = "Next search result centered", silent = true })
 set("n", "N", "Nzzzv", { desc = "Previous search result centered", silent = true })
 set("n", "G", "Gzz", { desc = "Go to bottom and center", silent = true })
+
+set("n", ";", ":", { desc = "CMD enter command mode" })
+set("i", "jk", "<ESC>", { desc = "escape insert mode" })
