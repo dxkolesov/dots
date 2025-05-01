@@ -33,11 +33,3 @@ autocmd({ "InsertEnter", "WinLeave" }, {
     end
   end,
 })
-
--- open the explorer after loading session
-autocmd({ "User" }, {
-  pattern = "PersistenceLoadPost",
-  callback = function()
-    Snacks.explorer({ cwd = LazyVim.root(), focus = false })
-  end,
-})
