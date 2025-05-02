@@ -46,6 +46,28 @@ return {
       vim.api.nvim_set_hl(0, "SnacksPickerTree", { link = "SnacksIndent" })
     end,
 
+    -- open explorer on when leaving dashboard
+    init = function()
+      vim.api.nvim_create_autocmd("BufLeave", {
+        pattern = "*",
+        callback = function()
+          if vim.bo.filetype ~= "snacks_dashboard" then
+            return
+          end
+
+          vim.schedule(function()
+            if vim.bo.filetype:find("snacks") then
+              return
+            end
+
+            vim.defer_fn(function()
+              Snacks.explorer({ cwd = LazyVim.root(), focus = false })
+            end, 50)
+          end)
+        end,
+      })
+    end,
+
     keys = {
       -- smart open
       {

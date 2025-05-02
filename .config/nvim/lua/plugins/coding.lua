@@ -10,7 +10,11 @@ return {
         menu = {
           border = "single",
           draw = {
-            columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 } },
+            columns = {
+              { "label", "label_description", gap = 1 },
+              { "kind_icon", gap = 1 },
+              { "kind", gap = 1 },
+            },
           },
         },
         documentation = {
