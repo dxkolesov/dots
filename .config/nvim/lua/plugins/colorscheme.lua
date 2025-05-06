@@ -169,7 +169,7 @@ return {
   --       variant = "main",
   --       palette = {
   --         main = {
-  --           base = "#141415",
+  --           base = "#000000",
   --         },
   --       },
   --     })
