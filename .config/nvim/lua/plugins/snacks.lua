@@ -46,6 +46,25 @@ return {
       vim.api.nvim_set_hl(0, "SnacksPickerTree", { link = "SnacksIndent" })
     end,
 
+    -- open explorer on start
+    init = function()
+      vim.api.nvim_create_autocmd("BufLeave", {
+        pattern = "*",
+        callback = function()
+          if vim.bo.filetype ~= "snacks_dashboard" then
+            return
+          end
+
+          vim.schedule(function()
+            local ft = vim.bo.filetype
+            if not ft:find("snacks") and ft ~= "lazy" then
+              Snacks.explorer({ cwd = LazyVim.root(), focus = false })
+            end
+          end)
+        end,
+      })
+    end,
+
     keys = {
       -- smart open
       {

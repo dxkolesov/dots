@@ -25,6 +25,7 @@ return {
           vim.api.nvim_set_hl(0, "TreesitterContext", { link = "CursorLine" })
           vim.api.nvim_set_hl(0, "SnacksIndent", { fg = "#323232" })
           vim.api.nvim_set_hl(0, "StatusLine", { bg = "#333333" })
+          vim.api.nvim_set_hl(0, "FlashLabel", { link = "TodoBgHack" })
 
           -- remove fg color from 'PmenuSel' hl
           local PMenuSelHl = vim.api.nvim_get_hl(0, { name = "PmenuSel" })
