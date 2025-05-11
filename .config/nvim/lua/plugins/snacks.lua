@@ -58,7 +58,9 @@ return {
           vim.schedule(function()
             local ft = vim.bo.filetype
             if not ft:find("snacks") and ft ~= "lazy" then
-              Snacks.explorer({ cwd = LazyVim.root(), focus = false })
+              vim.defer_fn(function()
+                Snacks.explorer({ cwd = LazyVim.root(), focus = false })
+              end, 100)
             end
           end)
         end,
@@ -66,15 +68,6 @@ return {
     end,
 
     keys = {
-      -- smart open
-      {
-        "<leader><space>",
-        function()
-          Snacks.picker.smart()
-        end,
-        desc = "Smart Open",
-      },
-
       -- dont focus explorer on open
       {
         "<leader>fe",
