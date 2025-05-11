@@ -75,6 +75,28 @@ return {
     },
   },
 
+  -- blink-cmp-git
+  {
+    "saghen/blink.cmp",
+    optional = true,
+    dependencies = {
+      { "Kaiser-Yang/blink-cmp-git" },
+    },
+    opts = function(_, opts)
+      opts.sources = opts.sources or {}
+
+      opts.sources.default = opts.sources.default or {}
+      table.insert(opts.sources.default, "git")
+
+      opts.sources.providers = opts.sources.providers or {}
+      opts.sources.providers["git"] = {
+        module = "blink-cmp-git",
+        name = "Git",
+      }
+      return opts
+    end,
+  },
+
   -- cmdline wilder
   -- {
   --   "gelguy/wilder.nvim",
