@@ -1,3 +1,9 @@
+# shellcheck shell=sh
+# auto start tmux
+if command -v tmux &>/dev/null && [ -z "$TMUX" ]; then
+  tmux attach || tmux new-session
+fi
+
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"

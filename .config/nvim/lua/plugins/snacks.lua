@@ -48,21 +48,30 @@ return {
 
     -- open explorer on start
     init = function()
+      local group = vim.api.nvim_create_augroup("SnacksDashboardLeaveAutocmds", { clear = true })
+
       vim.api.nvim_create_autocmd("BufLeave", {
         pattern = "*",
+        group = group,
         callback = function()
           if vim.bo.filetype ~= "snacks_dashboard" then
             return
           end
 
-          vim.schedule(function()
-            local ft = vim.bo.filetype
-            if not ft:find("snacks") and ft ~= "lazy" then
-              vim.defer_fn(function()
-                Snacks.explorer({ cwd = LazyVim.root(), focus = false })
-              end, 100)
-            end
-          end)
+          vim.api.nvim_create_autocmd("BufEnter", {
+            pattern = "*",
+            group = group,
+            once = true,
+            callback = function()
+              local ft = vim.bo.filetype
+              if not ft:match("snacks") and ft ~= "lazy" then
+                vim.defer_fn(function()
+                  Snacks.explorer({ cwd = LazyVim.root(), focus = false })
+                  vim.api.nvim_clear_autocmds({ group = group })
+                end, 200)
+              end
+            end,
+          })
         end,
       })
     end,
