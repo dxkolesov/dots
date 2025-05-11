@@ -3,7 +3,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
 split() {
-  tmux split-window -v -l 20%
+  tmux split-window -v -l 33%
+  tmux split-window -h -l 66%
   tmux split-window -h -l 50%
 }
 
