@@ -37,21 +37,6 @@ return {
 
       cmdline = {
         enabled = true,
-
-        -- TODO: remove after https://github.com/LazyVim/LazyVim/pull/5620 is in stable
-        sources = function()
-          local type = vim.fn.getcmdtype()
-          -- Search forward and backward
-          if type == "/" or type == "?" then
-            return { "buffer" }
-          end
-          -- Commands
-          if type == ":" or type == "@" then
-            return { "cmdline" }
-          end
-          return {}
-        end,
-
         completion = {
           menu = { auto_show = true },
           list = {

@@ -65,10 +65,8 @@ return {
             callback = function()
               local ft = vim.bo.filetype
               if not ft:match("snacks") and ft ~= "lazy" then
-                vim.defer_fn(function()
-                  Snacks.explorer({ cwd = LazyVim.root(), focus = false })
-                  vim.api.nvim_clear_autocmds({ group = group })
-                end, 200)
+                Snacks.explorer({ cwd = LazyVim.root(), focus = false })
+                vim.api.nvim_clear_autocmds({ group = group })
               end
             end,
           })
