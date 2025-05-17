@@ -82,6 +82,67 @@ return {
     end,
   },
 
+  -- blink-cmp-npm
+  {
+    "saghen/blink.cmp",
+    optional = true,
+    dependencies = {
+      { "alexandre-abrioux/blink-cmp-npm.nvim" },
+    },
+    opts = function(_, opts)
+      opts.sources = opts.sources or {}
+
+      opts.sources.default = opts.sources.default or {}
+      table.insert(opts.sources.default, "npm")
+
+      opts.sources.providers = opts.sources.providers or {}
+      opts.sources.providers["npm"] = {
+        module = "blink-cmp-npm",
+        name = "npm",
+        async = true,
+        -- the options below are optional
+        ---@module "blink-cmp-npm"
+        ---@type blink-cmp-npm.Options
+        opts = {
+          ignore = {},
+          only_semantic_versions = true,
+          only_latest_version = false,
+        },
+      }
+      return opts
+    end,
+  },
+
+  -- blink-cmp-env
+  {
+    "saghen/blink.cmp",
+    optional = true,
+    dependencies = {
+      { "bydlw98/blink-cmp-env" },
+    },
+    opts = function(_, opts)
+      opts.sources = opts.sources or {}
+
+      opts.sources.default = opts.sources.default or {}
+      table.insert(opts.sources.default, "env")
+
+      opts.sources.providers = opts.sources.providers or {}
+      opts.sources.providers["env"] = {
+        module = "blink-cmp-env",
+        name = "Env",
+        -- the options below are optional
+        ---@module "blink-cmp-env"
+        ---@type blink-cmp-env.Options
+        opts = {
+          item_kind = require("blink.cmp.types").CompletionItemKind.Variable,
+          show_braces = false,
+          show_documentation_window = true,
+        },
+      }
+      return opts
+    end,
+  },
+
   -- cmdline wilder
   -- {
   --   "gelguy/wilder.nvim",

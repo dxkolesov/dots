@@ -39,6 +39,13 @@ return {
     },
   },
 
+  -- hardtime
+  {
+    "m4xshen/hardtime.nvim",
+    event = "LazyFile",
+    opts = {},
+  },
+
   -- mason border
   {
     "williamboman/mason.nvim",
