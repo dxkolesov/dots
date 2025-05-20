@@ -38,6 +38,11 @@ return {
         },
       },
     },
+    config = function(_, opts)
+      require("bufferline").setup(opts)
+      local groups = require("bufferline.groups")
+      groups.builtin.pinned.icon = "*"
+    end,
     keys = {
       { "<leader>1", "<cmd>lua require('bufferline').go_to_buffer(1, true)<cr>", desc = "which_key_ignore" },
       { "<leader>2", "<cmd>lua require('bufferline').go_to_buffer(2, true)<cr>", desc = "which_key_ignore" },
