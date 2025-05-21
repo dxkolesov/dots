@@ -91,8 +91,9 @@ return {
   -- rainbow parentheses
   {
     "HiPhish/rainbow-delimiters.nvim",
-    main = "rainbow-delimiters.setup",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
     event = "LazyFile",
+    main = "rainbow-delimiters.setup",
     opts = {
       highlight = {
         "Constant",
