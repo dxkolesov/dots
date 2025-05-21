@@ -13,7 +13,7 @@
   "flash.nvim": { "branch": "main", "commit": "3c942666f115e2811e959eabbdd361a025db8b63" },
   "friendly-snippets": { "branch": "main", "commit": "572f5660cf05f8cd8834e096d7b4c921ba18e175" },
   "grug-far.nvim": { "branch": "main", "commit": "7df08fff7da6ee08006fe8eaccc3407b89da368b" },
-  "hardtime.nvim": { "branch": "main", "commit": "be3329939c14fc8a7e948eb963f632581a27ad2d" },
+  "hardtime.nvim": { "branch": "main", "commit": "7c7434003ab527918c2b1c072befa23978c7c49d" },
   "import-cost.nvim": { "branch": "main", "commit": "332b9870c7b22dcfb297a0be7d7a87c148181694" },
   "inc-rename.nvim": { "branch": "main", "commit": "2eaff20526ff6101337b84f4b0d238c11f47d7f4" },
   "incline.nvim": { "branch": "main", "commit": "27040695b3bbfcd3257669037bd008d1a892831d" },
@@ -37,7 +37,7 @@
   "nvim-px-to-rem": { "branch": "main", "commit": "da22e3d7cc067dc459d84b67e830edf7d264c5b5" },
   "nvim-treesitter": { "branch": "master", "commit": "066fd6505377e3fd4aa219e61ce94c2b8bdb0b79" },
   "nvim-treesitter-context": { "branch": "master", "commit": "4976d8b90401cba9b85f6861e4e5a6edef2f2086" },
-  "nvim-treesitter-textobjects": { "branch": "master", "commit": "a91cd95f50bf991106403cb02c5851b92e45820e" },
+  "nvim-treesitter-textobjects": { "branch": "master", "commit": "15f945eabde2a293ccf48eb28c214a69b643d6e1" },
   "nvim-ts-autotag": { "branch": "main", "commit": "a1d526af391f6aebb25a8795cbc05351ed3620b5" },
   "obsidian.nvim": { "branch": "main", "commit": "9ada1217e6d03dee9b51ea73d120b8986ef1e612" },
   "package-info.nvim": { "branch": "master", "commit": "4f1b8287dde221153ec9f2acd46e8237d2d0881e" },
@@ -56,7 +56,7 @@
   "tw-values.nvim": { "branch": "main", "commit": "6c8fb620a51df67804b05b40386ec674775a8b41" },
   "vague.nvim": { "branch": "main", "commit": "a14014bd886b28d45be4dbea72992ce60741dc5f" },
   "vim-be-good": { "branch": "master", "commit": "0ae3de14eb8efc6effe7704b5e46495e91931cc5" },
-  "vim-tmux-navigator": { "branch": "master", "commit": "64803fdd19a36211eba5e39f86c4cbceae8e1d06" },
+  "vim-tmux-navigator": { "branch": "master", "commit": "0274dac508c62cd57efc8976c58646dbf62e2945" },
   "web-tools.nvim": { "branch": "master", "commit": "2f895049d3b6e3a0b2cedfa18c8733b36fb6cbda" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" }
 }
