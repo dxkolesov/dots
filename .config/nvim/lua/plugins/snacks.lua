@@ -91,11 +91,15 @@ return {
 
     -- open explorer on start
     init = function()
-      local group = vim.api.nvim_create_augroup("SnacksDashboardLeaveAutocmds", { clear = true })
+      local dashboard_group = vim.api.nvim_create_augroup("SnacksDashboardEvents", { clear = true })
+
+      local function should_skip_buffer()
+        return vim.bo.filetype:match("snacks") or vim.bo.buftype == "nofile"
+      end
 
       vim.api.nvim_create_autocmd("BufLeave", {
         pattern = "*",
-        group = group,
+        group = dashboard_group,
         callback = function()
           if vim.bo.filetype ~= "snacks_dashboard" then
             return
@@ -103,14 +107,18 @@ return {
 
           vim.api.nvim_create_autocmd("BufEnter", {
             pattern = "*",
-            group = group,
-            once = true,
+            group = dashboard_group,
             callback = function()
-              local ft = vim.bo.filetype
-              if not ft:match("snacks") and ft ~= "lazy" then
-                Snacks.explorer({ cwd = LazyVim.root(), focus = false })
-                vim.api.nvim_clear_autocmds({ group = group })
+              if should_skip_buffer() then
+                return
               end
+
+              Snacks.explorer({
+                cwd = LazyVim.root(),
+                focus = false,
+              })
+
+              vim.api.nvim_clear_autocmds({ group = dashboard_group })
             end,
           })
         end,
