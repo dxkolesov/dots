@@ -68,13 +68,6 @@ return {
     },
   },
 
-  -- replace with text-case
-  {
-    "johmsalas/text-case.nvim",
-    opts = {},
-    cmd = "Subs",
-  },
-
   -- tmux
   {
     "christoomey/vim-tmux-navigator",
@@ -109,6 +102,40 @@ return {
         "String",
         "Keyword",
         "Special",
+      },
+    },
+  },
+
+  -- better quickfix
+  {
+    "kevinhwang91/nvim-bqf",
+    ft = "qf",
+    opts = {},
+  },
+  {
+    "stevearc/quicker.nvim",
+    ft = "qf",
+    opts = {},
+    keys = {
+      {
+        "<leader>xq",
+        function()
+          require("quicker").toggle({
+            focus = true,
+          })
+        end,
+        desc = "Toggle quickfix list",
+      },
+
+      {
+        "<leader>xl",
+        function()
+          require("quicker").toggle({
+            focus = true,
+            loclist = true,
+          })
+        end,
+        desc = "Toggle quickfix list",
       },
     },
   },
