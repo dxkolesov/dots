@@ -89,36 +89,79 @@ return {
       vim.api.nvim_set_hl(0, "SnacksPickerTree", { link = "SnacksIndent" })
     end,
 
-    -- open explorer on start
     init = function()
-      local dashboard_group = vim.api.nvim_create_augroup("SnacksDashboardEvents", { clear = true })
+      local function should_skip_buffer(buf)
+        buf = buf or vim.api.nvim_get_current_buf()
 
-      local function should_skip_buffer()
-        return vim.bo.filetype:match("snacks") or vim.bo.buftype == "nofile"
+        if not vim.api.nvim_buf_is_valid(buf) then
+          return true
+        end
+
+        local bo = vim.bo[buf]
+        return bo.buftype == "nofile" or bo.filetype == "lazy" or bo.filetype:find("snacks", 1, true)
       end
 
+      local explorer_buffers_group = vim.api.nvim_create_augroup("SnacksExplorerEvents", { clear = true })
+      local explorer_dashboard_group = vim.api.nvim_create_augroup("SnacksDashboardEvents", { clear = true })
+
+      -- refresh explorer when entering a buffer
+      vim.api.nvim_create_autocmd("BufEnter", {
+        group = explorer_buffers_group,
+        callback = function(event)
+          local buf = event.buf
+
+          if should_skip_buffer(buf) or vim.bo[buf].buftype ~= "" then
+            return
+          end
+
+          local ok, snacks = pcall(require, "snacks")
+          if not ok then
+            return
+          end
+
+          local explorers = snacks.picker.get({ source = "explorer" })
+          local explorer = explorers and explorers[1]
+          if explorer then
+            vim.schedule(function()
+              explorer:set_cwd(LazyVim.root())
+              explorer:find()
+            end)
+          end
+        end,
+      })
+
+      -- open explorer when leaving the dashboard
       vim.api.nvim_create_autocmd("BufLeave", {
         pattern = "*",
-        group = dashboard_group,
-        callback = function()
-          if vim.bo.filetype ~= "snacks_dashboard" then
+        group = explorer_dashboard_group,
+        callback = function(event)
+          if vim.bo[event.buf].filetype ~= "snacks_dashboard" then
             return
           end
 
           vim.api.nvim_create_autocmd("BufEnter", {
             pattern = "*",
-            group = dashboard_group,
+            group = explorer_dashboard_group,
+            once = true,
             callback = function()
               if should_skip_buffer() then
                 return
               end
 
-              Snacks.explorer({
-                cwd = LazyVim.root(),
-                focus = false,
-              })
+              local ok, snacks = pcall(require, "snacks")
+              if not ok then
+                return
+              end
 
-              vim.api.nvim_clear_autocmds({ group = dashboard_group })
+              vim.schedule(function()
+                snacks.explorer({
+                  cwd = LazyVim.root(),
+                  focus = false,
+                })
+              end)
+
+              -- cleanup
+              vim.api.nvim_clear_autocmds({ group = explorer_dashboard_group })
             end,
           })
         end,

@@ -1,72 +1,72 @@
 return {
-  -- neocodeium
+  -- supermaven
   {
-    "monkoose/neocodeium",
+    "supermaven-inc/supermaven-nvim",
     event = "InsertEnter",
-    opts = {
-      silent = true,
-      show_label = false,
+    cmd = {
+      "SupermavenUseFree",
+      "SupermavenUsePro",
     },
-    keys = {
-      {
-        "<M-l>",
-        function()
-          require("neocodeium").accept()
-        end,
-        expr = true,
-        silent = true,
-        mode = "i",
-        desc = "Neocodeium Accept",
+    opts = {
+      keymaps = {
+        accept_suggestion = "<M-l>",
+        clear_suggestion = "<C-]>",
+        accept_word = "<Nop>",
       },
-      {
-        "<M-]>",
-        function()
-          require("neocodeium").cycle_or_complete()
-        end,
-        expr = true,
-        silent = true,
-        mode = "i",
-        desc = "Neocodeium Next Completion",
-      },
-      {
-        "<M-[>",
-        function()
-          require("neocodeium").cycle_or_complete(-1)
-        end,
-        expr = true,
-        silent = true,
-        mode = "i",
-        desc = "Neocodeium Previous Completion",
-      },
-      {
-        "<C-]>",
-        function()
-          require("neocodeium").clear()
-        end,
-        expr = true,
-        silent = true,
-        mode = "i",
-        desc = "Neocodeium Clear",
-      },
+
+      ignore_filetypes = { "bigfile", "snacks_input", "snacks_notif" },
     },
   },
 
-  -- supermaven
+  -- neocodeium
   -- {
-  --   "supermaven-inc/supermaven-nvim",
+  --   "monkoose/neocodeium",
   --   event = "InsertEnter",
-  --   cmd = {
-  --     "SupermavenUseFree",
-  --     "SupermavenUsePro",
-  --   },
   --   opts = {
-  --     keymaps = {
-  --       accept_suggestion = "<M-l>",
-  --       clear_suggestion = "<C-]>",
-  --       accept_word = "<Nop>",
+  --     silent = true,
+  --     show_label = false,
+  --   },
+  --   keys = {
+  --     {
+  --       "<M-l>",
+  --       function()
+  --         require("neocodeium").accept()
+  --       end,
+  --       expr = true,
+  --       silent = true,
+  --       mode = "i",
+  --       desc = "Neocodeium Accept",
   --     },
-  --
-  --     ignore_filetypes = { "bigfile", "snacks_input", "snacks_notif" },
+  --     {
+  --       "<M-]>",
+  --       function()
+  --         require("neocodeium").cycle_or_complete()
+  --       end,
+  --       expr = true,
+  --       silent = true,
+  --       mode = "i",
+  --       desc = "Neocodeium Next Completion",
+  --     },
+  --     {
+  --       "<M-[>",
+  --       function()
+  --         require("neocodeium").cycle_or_complete(-1)
+  --       end,
+  --       expr = true,
+  --       silent = true,
+  --       mode = "i",
+  --       desc = "Neocodeium Previous Completion",
+  --     },
+  --     {
+  --       "<C-]>",
+  --       function()
+  --         require("neocodeium").clear()
+  --       end,
+  --       expr = true,
+  --       silent = true,
+  --       mode = "i",
+  --       desc = "Neocodeium Clear",
+  --     },
   --   },
   -- },
 
