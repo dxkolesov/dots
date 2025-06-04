@@ -74,21 +74,17 @@ return {
   {
     "saghen/blink.cmp",
     optional = true,
-    dependencies = {
-      { "jsongerber/nvim-px-to-rem", config = true },
+    dependencies = { "jsongerber/nvim-px-to-rem" },
+    opts = {
+      sources = {
+        default = { "nvim-px-to-rem" },
+        providers = {
+          ["nvim-px-to-rem"] = {
+            name = "nvim-px-to-rem",
+            module = "nvim-px-to-rem.integrations.blink",
+          },
+        },
+      },
     },
-    opts = function(_, opts)
-      opts.sources = opts.sources or {}
-
-      opts.sources.default = opts.sources.default or {}
-      table.insert(opts.sources.default, "nvim-px-to-rem")
-
-      opts.sources.providers = opts.sources.providers or {}
-      opts.sources.providers["nvim-px-to-rem"] = {
-        module = "nvim-px-to-rem.integrations.blink",
-        name = "nvim-px-to-rem",
-      }
-      return opts
-    end,
   },
 }

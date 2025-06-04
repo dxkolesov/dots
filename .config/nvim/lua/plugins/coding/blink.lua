@@ -69,86 +69,71 @@ return {
     },
   },
 
-  -- blink-cmp-git
+  -- git source
   {
     "saghen/blink.cmp",
     optional = true,
-    dependencies = {
-      { "Kaiser-Yang/blink-cmp-git" },
+    dependencies = { "Kaiser-Yang/blink-cmp-git" },
+    opts = {
+      sources = {
+        default = { "git" },
+        providers = {
+          git = {
+            module = "blink-cmp-git",
+            name = "Git",
+          },
+        },
+      },
     },
-    opts = function(_, opts)
-      opts.sources = opts.sources or {}
-
-      opts.sources.default = opts.sources.default or {}
-      table.insert(opts.sources.default, "git")
-
-      opts.sources.providers = opts.sources.providers or {}
-      opts.sources.providers["git"] = {
-        module = "blink-cmp-git",
-        name = "Git",
-      }
-      return opts
-    end,
   },
 
-  -- blink-cmp-npm
+  -- packages.json source
   {
     "saghen/blink.cmp",
     optional = true,
-    dependencies = {
-      { "alexandre-abrioux/blink-cmp-npm.nvim" },
-    },
-    opts = function(_, opts)
-      opts.sources = opts.sources or {}
-
-      opts.sources.default = opts.sources.default or {}
-      table.insert(opts.sources.default, "npm")
-
-      opts.sources.providers = opts.sources.providers or {}
-      opts.sources.providers["npm"] = {
-        module = "blink-cmp-npm",
-        name = "npm",
-        async = true,
-        -- the options below are optional
-        ---@module "blink-cmp-npm"
-        ---@type blink-cmp-npm.Options
-        opts = {
-          ignore = {},
-          only_semantic_versions = true,
-          only_latest_version = false,
+    dependencies = { "alexandre-abrioux/blink-cmp-npm.nvim" },
+    opts = {
+      sources = {
+        default = {
+          "npm",
         },
-      }
-      return opts
-    end,
+        providers = {
+          npm = {
+            name = "npm",
+            module = "blink-cmp-npm",
+            async = true,
+            score_offset = 100,
+            opts = {
+              ignore = {},
+              only_semantic_versions = true,
+              only_latest_version = false,
+            },
+          },
+        },
+      },
+    },
   },
 
-  -- blink-cmp-env
+  -- environment variables source
   {
     "saghen/blink.cmp",
     optional = true,
-    dependencies = {
-      { "bydlw98/blink-cmp-env" },
-    },
-    opts = function(_, opts)
-      opts.sources = opts.sources or {}
-
-      opts.sources.default = opts.sources.default or {}
-      table.insert(opts.sources.default, "env")
-
-      opts.sources.providers = opts.sources.providers or {}
-      opts.sources.providers["env"] = {
-        module = "blink-cmp-env",
-        name = "Env",
-        -- the options below are optional
-        ---@module "blink-cmp-env"
-        ---@type blink-cmp-env.Options
-        opts = {
-          item_kind = require("blink.cmp.types").CompletionItemKind.Variable,
-          show_braces = false,
-          show_documentation_window = true,
+    dependencies = { "bydlw98/blink-cmp-env" },
+    opts = {
+      sources = {
+        default = { "env" },
+        providers = {
+          env = {
+            name = "Env",
+            module = "blink-cmp-env",
+            opts = {
+              item_kind = require("blink.cmp.types").CompletionItemKind.Variable,
+              show_braces = false,
+              show_documentation_window = true,
+            },
+          },
         },
-      }
-      return opts
-    end,
+      },
+    },
   },
 }
