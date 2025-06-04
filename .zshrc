@@ -180,16 +180,12 @@ alias vim="nvim"
 alias vi="nvim"
 
 # pnpm
-export PNPM_HOME="/Users/dmitriikolesov/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
 *":$PNPM_HOME:"*) ;;
 *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-
-# bun
-[ -s "/Users/dmitriikolesov/.bun/_bun" ] && source "/Users/dmitriikolesov/.bun/_bun"
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+# pnpm end
 
 #zsh-autosuggestions
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
