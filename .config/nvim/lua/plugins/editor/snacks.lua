@@ -67,6 +67,8 @@ return {
 
         sources = {
           explorer = {
+            hidden = true,
+            ignored = true,
             layout = {
               -- explorer width
               layout = {
