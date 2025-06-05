@@ -1,6 +1,6 @@
 {
   "LazyVim": { "branch": "main", "commit": "25abbf546d564dc484cf903804661ba12de45507" },
-  "SchemaStore.nvim": { "branch": "main", "commit": "8563ed7d7e9f5e94949a7fa8d99fa318bf4e71d9" },
+  "SchemaStore.nvim": { "branch": "main", "commit": "307a3320d3ec6c8ddafd62c4c661e71bc20cb93f" },
   "blink-cmp-env": { "branch": "main", "commit": "700b6d9542b9d5deea80121abbb46b1400ace302" },
   "blink-cmp-git": { "branch": "master", "commit": "28f302c3917e374b91acb3d2ff2da5cd392679f5" },
   "blink-cmp-npm.nvim": { "branch": "main", "commit": "f316507437aa893dbb7aa6709ac9cd68375b3670" },
@@ -33,7 +33,7 @@
   "nui.nvim": { "branch": "main", "commit": "7cd18e73cfbd70e1546931b7268b3eebaeff9391" },
   "nvim-bqf": { "branch": "main", "commit": "e20417d5e589e03eaaaadc4687904528500608be" },
   "nvim-highlight-colors": { "branch": "main", "commit": "b42a5ccec7457b44e89f7ed3b3afb1b375bb2093" },
-  "nvim-lint": { "branch": "master", "commit": "5763f1d56449e67789796adf87a3908c2ee3c888" },
+  "nvim-lint": { "branch": "master", "commit": "cc26ae6a620298bb3f33b0e0681f99a10ae57781" },
   "nvim-lspconfig": { "branch": "master", "commit": "036885e8e5456d3907626b634693234f628afef6" },
   "nvim-px-to-rem": { "branch": "main", "commit": "da22e3d7cc067dc459d84b67e830edf7d264c5b5" },
   "nvim-treesitter": { "branch": "master", "commit": "42fc28ba918343ebfd5565147a42a26580579482" },

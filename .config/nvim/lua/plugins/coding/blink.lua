@@ -1,6 +1,7 @@
 return {
   {
     "Saghen/blink.cmp",
+    optional = true,
     opts = {
       completion = {
         list = {
