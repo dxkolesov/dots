@@ -104,7 +104,7 @@ return {
 
         local bo = vim.bo[buf]
 
-        if bo.buftype ~= "" then
+        if bo.buftype ~= "" or bo.buftype == "terminal" then
           return true
         end
 
@@ -144,7 +144,7 @@ return {
         end,
       })
 
-      -- open explorer when leaving the dashboard
+      -- open explorer and claude code when leaving the dashboard
       vim.api.nvim_create_autocmd("BufLeave", {
         pattern = "*",
         group = explorer_dashboard_group,
@@ -168,10 +168,16 @@ return {
               end
 
               vim.schedule(function()
+                -- open snacks explorer
                 snacks.explorer({
                   cwd = LazyVim.root(),
                   focus = false,
                 })
+                -- open claude code
+                local current_win = vim.api.nvim_get_current_win()
+                vim.cmd("ClaudeCode")
+                vim.api.nvim_set_current_win(current_win)
+                vim.cmd("stopinsert")
               end)
 
               -- cleanup
@@ -205,6 +211,19 @@ return {
           Snacks.scratch({ icon = " ", name = "Todo", ft = "markdown", file = "~/TODO.md" })
         end,
         desc = "Todo List",
+      },
+
+      -- delete other buffers except terminal
+      {
+        "<leader>bo",
+        function()
+          Snacks.bufdelete.delete({
+            filter = function(buf)
+              return buf ~= vim.api.nvim_get_current_buf() and vim.bo[buf].buftype ~= "terminal"
+            end,
+          })
+        end,
+        desc = "Delete Other Buffers",
       },
     },
   },
