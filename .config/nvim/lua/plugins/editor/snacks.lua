@@ -67,8 +67,6 @@ return {
 
         sources = {
           explorer = {
-            hidden = true,
-            ignored = true,
             layout = {
               -- explorer width
               layout = {
@@ -207,14 +205,6 @@ return {
           Snacks.scratch({ icon = " ", name = "Todo", ft = "markdown", file = "~/TODO.md" })
         end,
         desc = "Todo List",
-      },
-      -- smart open
-      {
-        "<leader><space>",
-        function()
-          Snacks.picker.smart()
-        end,
-        desc = "Smart Open",
       },
     },
   },
