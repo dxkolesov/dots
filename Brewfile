@@ -20,6 +20,7 @@ cask 'spotify'
 cask 'telegram'
 
 # Formulae
+brew 'ast-grep'
 brew 'bat'
 brew 'bitwarden-cli'
 brew 'bottom'

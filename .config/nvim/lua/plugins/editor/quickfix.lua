@@ -17,6 +17,7 @@ return {
         function()
           require("quicker").toggle({
             focus = true,
+            open_cmd_mods = { split = "belowright" },
           })
         end,
         desc = "Toggle quickfix list",
@@ -28,6 +29,7 @@ return {
           require("quicker").toggle({
             focus = true,
             loclist = true,
+            open_cmd_mods = { split = "belowright" },
           })
         end,
         desc = "Toggle quickfix list",

@@ -37,7 +37,7 @@ autocmd({ "InsertEnter", "WinLeave" }, {
 -- auto-center after jumping 5+ lines
 local last_lines = {}
 
-vim.api.nvim_create_autocmd("CursorMoved", {
+autocmd("CursorMoved", {
   callback = function()
     if vim.bo.buftype ~= "" then
       return
@@ -55,7 +55,7 @@ vim.api.nvim_create_autocmd("CursorMoved", {
   end,
 })
 
-vim.api.nvim_create_autocmd("BufDelete", {
+autocmd("BufDelete", {
   callback = function(event)
     last_lines[event.buf] = nil
   end,

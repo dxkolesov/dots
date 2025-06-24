@@ -24,11 +24,13 @@ return {
           require("quicker").open({
             focus = true,
             loclist = true,
+            open_cmd_mods = { split = "belowright" },
           })
         else
           vim.fn.setqflist(qf)
           require("quicker").open({
             focus = true,
+            open_cmd_mods = { split = "belowright" },
           })
         end
       end
