@@ -5,7 +5,6 @@ return {
     event = "LazyFile",
     opts = {
       hide = {
-        only_win = true,
         focused_win = true,
       },
     },
