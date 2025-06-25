@@ -33,30 +33,3 @@ autocmd({ "InsertEnter", "WinLeave" }, {
     end
   end,
 })
-
--- auto-center after jumping 5+ lines
-local last_lines = {}
-
-autocmd("CursorMoved", {
-  callback = function()
-    if vim.bo.buftype ~= "" then
-      return
-    end
-
-    local buf = vim.api.nvim_get_current_buf()
-    local line = vim.api.nvim_win_get_cursor(0)[1]
-    local last = last_lines[buf]
-
-    if last and math.abs(line - last) >= 5 then
-      vim.cmd("normal! zz")
-    end
-
-    last_lines[buf] = line
-  end,
-})
-
-autocmd("BufDelete", {
-  callback = function(event)
-    last_lines[event.buf] = nil
-  end,
-})

@@ -5,7 +5,7 @@ return {
     dependencies = "echasnovski/mini.icons",
     opts = {
       options = {
-        -- relative buffer numbers
+        --  buffer numbers
         numbers = function(opts)
           local state = require("bufferline.state")
           for i, buf in ipairs(state.components) do
@@ -21,13 +21,6 @@ return {
 
         indicator = {
           style = "none",
-        },
-
-        offsets = {
-          {
-            filetype = "snacks_layout_box",
-            -- highlight = "Directory",
-          },
         },
 
         -- ignore claude buffer

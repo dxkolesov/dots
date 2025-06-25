@@ -6,7 +6,7 @@ return {
   },
   opts = {
     window = {
-      split_ratio = 0.32,
+      split_ratio = 0.3,
       position = "vertical",
     },
   },

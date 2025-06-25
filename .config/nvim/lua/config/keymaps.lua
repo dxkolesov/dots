@@ -8,5 +8,12 @@ set("n", "<C-c>", "ciw", { desc = "Change word", silent = true })
 set("n", "J", "mzJ`z", { desc = "Join lines keeping cursor position", silent = true })
 set("n", "=ap", "ma=ap'a", { desc = "Format paragraph and keep position", silent = true })
 
+-- navigation and scrolling
+set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down and center", silent = true })
+set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up and center", silent = true })
+set("n", "n", "nzzzv", { desc = "Next search result centered", silent = true })
+set("n", "N", "Nzzzv", { desc = "Previous search result centered", silent = true })
+set("n", "G", "Gzz", { desc = "Go to bottom and center", silent = true })
+
 set("n", ";", ":", { desc = "CMD enter command mode" })
 set("i", "jk", "<ESC>", { desc = "escape insert mode" })

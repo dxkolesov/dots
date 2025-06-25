@@ -71,9 +71,9 @@ return {
           explorer = {
             layout = {
               -- explorer width
-              layout = {
-                width = 0.2,
-              },
+              -- layout = {
+              --   width = 0.2,
+              -- },
               -- hide input
               hidden = { "input" },
             },
@@ -117,34 +117,7 @@ return {
         return false
       end
 
-      local explorer_buffers_group = vim.api.nvim_create_augroup("SnacksExplorerEvents", { clear = true })
       local explorer_dashboard_group = vim.api.nvim_create_augroup("SnacksDashboardEvents", { clear = true })
-
-      -- refresh explorer when entering a buffer
-      vim.api.nvim_create_autocmd("BufEnter", {
-        group = explorer_buffers_group,
-        callback = function(event)
-          local buf = event.buf
-
-          if should_skip_buffer(buf) then
-            return
-          end
-
-          local ok, snacks = pcall(require, "snacks")
-          if not ok then
-            return
-          end
-
-          local explorers = snacks.picker.get({ source = "explorer" })
-          local explorer = explorers and explorers[1]
-          if explorer then
-            vim.schedule(function()
-              explorer:set_cwd(LazyVim.root())
-              explorer:find()
-            end)
-          end
-        end,
-      })
 
       -- open explorer and claude code when leaving the dashboard
       vim.api.nvim_create_autocmd("BufLeave", {
