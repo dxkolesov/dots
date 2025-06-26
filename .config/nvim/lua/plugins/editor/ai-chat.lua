@@ -14,6 +14,7 @@ return {
   config = function(_, opts)
     require("claude-code").setup(opts)
 
+    -- preserve width of claude-code window
     local target_width = math.floor(vim.o.columns * opts.window.split_ratio)
     local claude_win_id = nil
 
@@ -40,6 +41,23 @@ return {
     vim.api.nvim_create_autocmd("WinResized", {
       group = vim.api.nvim_create_augroup("ClaudeCodeWidthPreserver", { clear = true }),
       callback = preserve_claude_width,
+    })
+
+    -- create new buffer when claude-code would be the last buffer
+    vim.api.nvim_create_autocmd("BufDelete", {
+      group = vim.api.nvim_create_augroup("ClaudeCodeBufferManager", { clear = true }),
+      callback = function()
+        vim.schedule(function()
+          local bufs = vim.tbl_filter(function(buf)
+            return vim.api.nvim_buf_is_loaded(buf) and vim.bo[buf].buflisted
+          end, vim.api.nvim_list_bufs())
+
+          if #bufs == 1 and vim.api.nvim_buf_get_name(bufs[1]):match("claude%-code") then
+            vim.cmd("enew")
+            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
+          end
+        end)
+      end,
     })
   end,
 }
