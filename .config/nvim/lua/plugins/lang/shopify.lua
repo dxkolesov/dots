@@ -15,21 +15,7 @@ return {
     opts = {
       ensure_installed = {
         "shopify-cli",
-        "erb-lint",
       },
-    },
-  },
-
-  -- lint
-  {
-    "mfussenegger/nvim-lint",
-    opts = {
-      linters_by_ft = {
-        liquid = { "erb_lint" },
-      },
-      -- linters = {
-      --   erb_lint = {},
-      -- },
     },
   },
 
