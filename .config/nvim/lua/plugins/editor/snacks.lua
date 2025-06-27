@@ -77,14 +77,6 @@ return {
               -- hide input
               hidden = { "input" },
             },
-            -- add relative numbers to explorer
-            win = {
-              list = {
-                wo = {
-                  relativenumber = true,
-                },
-              },
-            },
           },
         },
       }
