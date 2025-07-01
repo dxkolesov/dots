@@ -22,15 +22,6 @@ return {
         indicator = {
           style = "none",
         },
-
-        -- ignore claude buffer
-        custom_filter = function(buf_number, buf_numbers)
-          local bufname = vim.api.nvim_buf_get_name(buf_number)
-          if bufname:match("claude%-code") then
-            return false
-          end
-          return true
-        end,
       },
 
       highlights = {

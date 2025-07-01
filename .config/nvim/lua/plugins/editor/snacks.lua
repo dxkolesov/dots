@@ -81,6 +81,13 @@ return {
         },
       }
 
+      -- fix scratch overlap explorer
+      opts.styles = {
+        scratch = {
+          zindex = 33,
+        },
+      }
+
       -- dashboard header
       opts.dashboard.preset.header = {
         vim.fn.fnamemodify(vim.fn.getcwd(), ":~"),
@@ -119,7 +126,7 @@ return {
 
       local explorer_dashboard_group = vim.api.nvim_create_augroup("SnacksDashboardEvents", { clear = true })
 
-      -- open explorer and claude code when leaving the dashboard
+      -- open explorer when leaving the dashboard
       vim.api.nvim_create_autocmd("BufLeave", {
         pattern = "*",
         group = explorer_dashboard_group,
@@ -148,11 +155,6 @@ return {
                   cwd = LazyVim.root(),
                   focus = false,
                 })
-                -- open claude code
-                local current_win = vim.api.nvim_get_current_win()
-                vim.cmd("ClaudeCode")
-                vim.api.nvim_set_current_win(current_win)
-                vim.cmd("stopinsert")
               end)
 
               -- cleanup
