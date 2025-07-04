@@ -50,7 +50,7 @@
 # Changing this configuration at runtime will only affect new terminals, i.e.
 # new windows, tabs, etc.
 
-font-family = JetBrainsMonoNL Nerd Font Propo
+font-family = JetBrainsMono Nerd Font Propo
 
 font-family-bold = 
 font-family-italic = 
@@ -68,15 +68,11 @@ font-family-bold-italic =
 # no font-family is specified, then the font-style is ignored unless you're
 # disabling the font style.
 
-# font-style = default
-# font-style-bold = default
-# font-style-italic = default
-# font-style-bold-italic = default
-
-font-style = medium
+font-style = default
 font-style-bold = medium
-font-style-italic = medium
+font-style-italic = false
 font-style-bold-italic = medium
+
 # Control whether Ghostty should synthesize a style if the requested style is
 # not available in the specified font-family.
 # 
@@ -126,9 +122,9 @@ font-synthetic-style = bold,italic,bold-italic
 # 
 # To generally disable most ligatures, use `-calt`, `-liga`, and `-dlig` (as
 # separate repetitive entries in your config).
-font-feature = -dlig
-font-feature = -liga
-font-feature = -calt
+# font-feature = -dlig
+# font-feature = -liga
+# font-feature = -calt
 
 # Font size in points. This value can be a non-integer and the nearest integer
 # pixel size will be selected. If you have a high dpi display where 1pt = 2px
