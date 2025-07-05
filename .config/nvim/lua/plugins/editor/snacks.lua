@@ -189,19 +189,6 @@ return {
         end,
         desc = "Todo List",
       },
-
-      -- delete other buffers except terminal
-      {
-        "<leader>bo",
-        function()
-          Snacks.bufdelete.delete({
-            filter = function(buf)
-              return buf ~= vim.api.nvim_get_current_buf() and vim.bo[buf].buftype ~= "terminal"
-            end,
-          })
-        end,
-        desc = "Delete Other Buffers",
-      },
     },
   },
 }
