@@ -8,20 +8,14 @@ fi
 eval "$(/opt/homebrew/bin/brew shellenv)"
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
-split() {
+term() {
   tmux split-window -v -l 33%
   tmux split-window -h -l 66%
   tmux split-window -h -l 50%
 }
 
-ide() {
-  if tmux list-panes -F '#{pane_index}' | grep -q '^2$' && tmux capture-pane -t 2 -p | grep -q 'claude'; then
-    tmux kill-pane -t 2
-  else
-    tmux split-window -h -l 30%
-    tmux send-keys -t 2 'claude' Enter
-    tmux select-pane -t 1
-  fi
+rpane() {
+  tmux split-window -h -l 30% -d
 }
 
 # Environment Variables
