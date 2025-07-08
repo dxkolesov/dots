@@ -88,6 +88,7 @@ return {
           modified = { bg = bg },
           modified_visible = { bg = bg },
           modified_selected = { bg = bg },
+          trunc_marker = { bg = bg },
         }
       end)(),
     },

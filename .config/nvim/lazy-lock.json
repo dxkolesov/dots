@@ -1,6 +1,6 @@
 {
   "LazyVim": { "branch": "main", "commit": "25abbf546d564dc484cf903804661ba12de45507" },
-  "SchemaStore.nvim": { "branch": "main", "commit": "1ec3867f463dfe4ca37001348953d810c716d4d9" },
+  "SchemaStore.nvim": { "branch": "main", "commit": "f4f08359ba81ef1f5e56480fd11687a5a946d19b" },
   "blink-cmp-env": { "branch": "main", "commit": "700b6d9542b9d5deea80121abbb46b1400ace302" },
   "blink-cmp-git": { "branch": "master", "commit": "31dad5db284641c94537de29865bb46495c53071" },
   "blink-cmp-npm.nvim": { "branch": "main", "commit": "f316507437aa893dbb7aa6709ac9cd68375b3670" },
@@ -59,7 +59,7 @@
   "vague.nvim": { "branch": "main", "commit": "adc3838cbbcf26aaec2fb89e6ed59cb93266a1b7" },
   "vim-be-good": { "branch": "master", "commit": "0ae3de14eb8efc6effe7704b5e46495e91931cc5" },
   "vim-matchquote": { "branch": "master", "commit": "c4c70010ddb62607e03f84b68262ce9d0c2c82fe" },
-  "vim-matchup": { "branch": "master", "commit": "5456eaccf757606884ec1ac1ef3f564019973873" },
+  "vim-matchup": { "branch": "master", "commit": "ea01ae7b54ed82d01aac03b796905e5ea0e28f1e" },
   "vim-tmux-navigator": { "branch": "master", "commit": "412c474e97468e7934b9c217064025ea7a69e05e" },
   "web-tools.nvim": { "branch": "master", "commit": "2f895049d3b6e3a0b2cedfa18c8733b36fb6cbda" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" }
