@@ -6,17 +6,16 @@ return {
       "nvim-lua/plenary.nvim",
     },
     opts = {
-      ui = { enable = false },
-      mappings = {
-        ["gf"] = {
-          action = function()
-            return require("obsidian").util.gf_passthrough()
-          end,
-          opts = { noremap = false, expr = true, buffer = true },
+      workspaces = {
+        {
+          name = "home",
+          path = vim.env.HOME .. "/Library/Mobile Documents/iCloud~md~obsidian/Documents/obsidian-vault",
         },
       },
 
-      dir = vim.env.HOME .. "/Library/Mobile Documents/iCloud~md~obsidian/Documents/obsidian-vault",
+      ui = { enable = false },
+
+      legacy_commands = false,
 
       daily_notes = {
         folder = "daily",

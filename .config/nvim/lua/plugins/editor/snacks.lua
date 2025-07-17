@@ -71,9 +71,9 @@ return {
           explorer = {
             layout = {
               -- explorer width
-              -- layout = {
-              --   width = 0.2,
-              -- },
+              layout = {
+                width = 0.25,
+              },
               -- hide input
               hidden = { "input" },
             },

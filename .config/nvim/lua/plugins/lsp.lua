@@ -8,7 +8,7 @@ return {
         opts = {
           notification = {
             window = {
-              border = "single",
+              border = "rounded",
               normal_hl = "NormalFloat",
               winblend = 1,
             },
@@ -24,7 +24,7 @@ return {
       diagnostics = {
         float = {
           source = true,
-          border = "single",
+          border = "rounded",
         },
         virtual_text = {
           source = true,

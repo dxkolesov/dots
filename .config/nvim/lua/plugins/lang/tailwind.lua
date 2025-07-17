@@ -6,7 +6,7 @@ return {
       { "<Leader>cv", "<CMD>TWValues<CR>", desc = "Tailwind CSS values" },
     },
     opts = {
-      border = "single",
+      border = "rounded",
     },
   },
 }

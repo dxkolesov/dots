@@ -4,7 +4,7 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ui = {
-        border = "single",
+        border = "rounded",
       },
     },
   },
@@ -15,14 +15,14 @@ return {
     ---@class PluginLspOpts
     opts = function(_, opts)
       -- add border
-      require("lspconfig.ui.windows").default_options.border = "single"
+      require("lspconfig.ui.windows").default_options.border = "rounded"
 
       -- hover border
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
       for _, key in ipairs(keys) do
         if key[1] == "K" then
           key[2] = function()
-            return vim.lsp.buf.hover({ border = "single" })
+            return vim.lsp.buf.hover({ border = "rounded" })
           end
           break
         end
