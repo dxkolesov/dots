@@ -17,3 +17,8 @@ set("n", "G", "Gzz", { desc = "Go to bottom and center", silent = true })
 
 set("n", ";", ":", { desc = "CMD enter command mode" })
 set("i", "jk", "<ESC>", { desc = "escape insert mode" })
+
+set("n", "<leader>Y", function()
+  vim.fn.setreg("+", vim.fn.expand("%:p"))
+  vim.notify("Copied filepath: " .. vim.fn.expand("%:p"))
+end, { desc = "Copy current file path" })

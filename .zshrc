@@ -31,7 +31,7 @@ export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 
 # API keys
-[[ -f ~/.zsh_private ]] && source ~/.zsh_private
+[[ -f ~/.zshrc_private ]] && source ~/.zshrc_private
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
