@@ -168,14 +168,14 @@ return {
     keys = {
       -- dont focus explorer on open
       {
-        "<leader>fe",
+        "<leader>e",
         function()
           Snacks.explorer({ cwd = LazyVim.root(), focus = false })
         end,
         desc = "Explorer Snacks (root dir)",
       },
       {
-        "<leader>fE",
+        "<leader>E",
         function()
           Snacks.explorer({ focus = false })
         end,
