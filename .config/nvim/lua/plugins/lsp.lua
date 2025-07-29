@@ -1,21 +1,6 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    dependencies = {
-      -- fidget
-      {
-        "j-hui/fidget.nvim",
-        opts = {
-          notification = {
-            window = {
-              border = "rounded",
-              normal_hl = "NormalFloat",
-              winblend = 1,
-            },
-          },
-        },
-      },
-    },
     ---@class PluginLspOpts
     opts = {
       inlay_hints = {

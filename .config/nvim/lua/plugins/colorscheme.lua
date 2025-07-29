@@ -1,8 +1,4 @@
 return {
-  -- disable default
-  { "folke/tokyonight.nvim", enabled = false },
-  { "catppuccin/nvim", enabled = false },
-
   -- vague
   {
     "vague2k/vague.nvim",

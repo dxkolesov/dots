@@ -24,10 +24,10 @@ return {
         },
 
         offsets = {
-          {
-            filetype = "snacks_layout_box",
-            highlight = "BufferLineOffsetSeparator",
-          },
+          -- {
+          --   filetype = "snacks_layout_box",
+          --   highlight = "BufferLineOffsetSeparator",
+          -- },
         },
       },
 
