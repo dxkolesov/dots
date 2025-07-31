@@ -89,52 +89,52 @@ return {
   -- },
 
   -- packages.json source
-  -- {
-  --   "saghen/blink.cmp",
-  --   optional = true,
-  --   dependencies = { "alexandre-abrioux/blink-cmp-npm.nvim" },
-  --   opts = {
-  --     sources = {
-  --       default = {
-  --         "npm",
-  --       },
-  --       providers = {
-  --         npm = {
-  --           name = "npm",
-  --           module = "blink-cmp-npm",
-  --           async = true,
-  --           score_offset = 100,
-  --           opts = {
-  --             ignore = {},
-  --             only_semantic_versions = true,
-  --             only_latest_version = false,
-  --           },
-  --         },
-  --       },
-  --     },
-  --   },
-  -- },
+  {
+    "saghen/blink.cmp",
+    optional = true,
+    dependencies = { "alexandre-abrioux/blink-cmp-npm.nvim" },
+    opts = {
+      sources = {
+        default = {
+          "npm",
+        },
+        providers = {
+          npm = {
+            name = "npm",
+            module = "blink-cmp-npm",
+            async = true,
+            score_offset = 100,
+            opts = {
+              ignore = {},
+              only_semantic_versions = true,
+              only_latest_version = false,
+            },
+          },
+        },
+      },
+    },
+  },
 
   -- environment variables source
-  -- {
-  --   "saghen/blink.cmp",
-  --   optional = true,
-  --   dependencies = { "bydlw98/blink-cmp-env" },
-  --   opts = {
-  --     sources = {
-  --       default = { "env" },
-  --       providers = {
-  --         env = {
-  --           name = "Env",
-  --           module = "blink-cmp-env",
-  --           opts = {
-  --             item_kind = require("blink.cmp.types").CompletionItemKind.Variable,
-  --             show_braces = false,
-  --             show_documentation_window = true,
-  --           },
-  --         },
-  --       },
-  --     },
-  --   },
-  -- },
+  {
+    "saghen/blink.cmp",
+    optional = true,
+    dependencies = { "bydlw98/blink-cmp-env" },
+    opts = {
+      sources = {
+        default = { "env" },
+        providers = {
+          env = {
+            name = "Env",
+            module = "blink-cmp-env",
+            opts = {
+              item_kind = require("blink.cmp.types").CompletionItemKind.Variable,
+              show_braces = false,
+              show_documentation_window = true,
+            },
+          },
+        },
+      },
+    },
+  },
 }
