@@ -48,7 +48,7 @@ return {
         function()
           require("harpoon"):list():select(i)
         end,
-        desc = "which_key_ignore",
+        desc = "Harpoon to File " .. i,
       })
     end
     return keys

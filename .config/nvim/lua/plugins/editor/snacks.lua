@@ -185,7 +185,7 @@ return {
       {
         "<leader>t",
         function()
-          Snacks.scratch({ icon = " ", name = "Todo", ft = "markdown", file = "~/TODO.md" })
+          Snacks.scratch({ icon = " ", name = "Todo", ft = "markdown", file = LazyVim.root() .. "/TODO.md" })
         end,
         desc = "Todo List",
       },
