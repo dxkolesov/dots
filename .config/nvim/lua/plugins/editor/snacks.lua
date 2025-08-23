@@ -66,22 +66,9 @@ return {
             Info = "I",
           },
         },
-
-        sources = {
-          explorer = {
-            layout = {
-              -- explorer width
-              layout = {
-                width = 0.25,
-              },
-              -- hide input
-              hidden = { "input" },
-            },
-          },
-        },
       }
 
-      -- fix scratch overlap explorer
+      -- fix scratch z-index
       opts.styles = {
         scratch = {
           zindex = 33,
@@ -124,12 +111,12 @@ return {
         return false
       end
 
-      local explorer_dashboard_group = vim.api.nvim_create_augroup("SnacksDashboardEvents", { clear = true })
+      local dashboard_group = vim.api.nvim_create_augroup("SnacksDashboardEvents", { clear = true })
 
-      -- open explorer when leaving the dashboard
+      -- open tree when leaving the dashboard
       vim.api.nvim_create_autocmd("BufLeave", {
         pattern = "*",
-        group = explorer_dashboard_group,
+        group = dashboard_group,
         callback = function(event)
           if vim.bo[event.buf].filetype ~= "snacks_dashboard" then
             return
@@ -137,28 +124,20 @@ return {
 
           vim.api.nvim_create_autocmd("BufEnter", {
             pattern = "*",
-            group = explorer_dashboard_group,
+            group = dashboard_group,
             once = true,
             callback = function()
               if should_skip_buffer() then
                 return
               end
 
-              local ok, snacks = pcall(require, "snacks")
-              if not ok then
-                return
-              end
-
               vim.schedule(function()
-                -- open snacks explorer
-                snacks.explorer({
-                  cwd = LazyVim.root(),
-                  focus = false,
-                })
+                -- open tree
+                require("nvim-tree.api").tree.toggle({ focus = false })
               end)
 
               -- cleanup
-              vim.api.nvim_clear_autocmds({ group = explorer_dashboard_group })
+              vim.api.nvim_clear_autocmds({ group = dashboard_group })
             end,
           })
         end,
@@ -166,21 +145,6 @@ return {
     end,
 
     keys = {
-      -- dont focus explorer on open
-      {
-        "<leader>e",
-        function()
-          Snacks.explorer({ cwd = LazyVim.root(), focus = false })
-        end,
-        desc = "Explorer Snacks (root dir)",
-      },
-      {
-        "<leader>E",
-        function()
-          Snacks.explorer({ focus = false })
-        end,
-        desc = "Explorer Snacks (cwd)",
-      },
       -- todo list
       {
         "<leader>t",
