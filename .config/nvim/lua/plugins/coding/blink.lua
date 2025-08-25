@@ -9,7 +9,6 @@ return {
         },
 
         menu = {
-          border = "rounded",
           draw = {
             columns = {
               { "label", "label_description", gap = 1 },
@@ -20,9 +19,6 @@ return {
         },
         documentation = {
           auto_show = true,
-          window = {
-            border = "rounded",
-          },
         },
         ghost_text = {
           enabled = false,
@@ -31,9 +27,6 @@ return {
 
       signature = {
         enabled = true,
-        window = {
-          border = "rounded",
-        },
       },
 
       cmdline = {

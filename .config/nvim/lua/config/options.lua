@@ -3,6 +3,7 @@
 -- Add any additional options here
 
 vim.o.guicursor = ""
+vim.o.winborder = "rounded"
 vim.o.list = false
 vim.o.showmode = true
 vim.o.ruler = true

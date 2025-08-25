@@ -5,8 +5,6 @@ return {
     keys = {
       { "<Leader>cv", "<CMD>TWValues<CR>", desc = "Tailwind CSS values" },
     },
-    opts = {
-      border = "rounded",
-    },
+    opts = {},
   },
 }

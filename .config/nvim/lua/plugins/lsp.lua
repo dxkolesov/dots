@@ -9,7 +9,6 @@ return {
       diagnostics = {
         float = {
           source = true,
-          border = "rounded",
         },
         virtual_text = {
           source = true,
