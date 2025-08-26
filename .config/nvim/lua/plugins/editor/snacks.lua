@@ -66,6 +66,18 @@ return {
             Info = "I",
           },
         },
+
+        sources = {
+          -- explorer
+          explorer = {
+            layout = {
+              layout = {
+                width = 0.2,
+              },
+              hidden = { "input" },
+            },
+          },
+        },
       }
 
       -- fix scratch z-index
@@ -75,81 +87,37 @@ return {
         },
       }
 
-      -- dashboard header
-      opts.dashboard.preset.header = {
-        vim.fn.fnamemodify(vim.fn.getcwd(), ":~"),
-      }
-
       -- highlights
       vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
       vim.api.nvim_set_hl(0, "SnacksPickerTree", { link = "SnacksIndent" })
     end,
 
-    init = function()
-      local function should_skip_buffer(buf)
-        buf = buf or vim.api.nvim_get_current_buf()
-
-        if not vim.api.nvim_buf_is_valid(buf) then
-          return true
-        end
-
-        local bufname = vim.api.nvim_buf_get_name(buf)
-        if bufname == vim.fn.expand("~/TODO.md") then
-          return true
-        end
-
-        local bo = vim.bo[buf]
-
-        if bo.buftype ~= "" or bo.buftype == "terminal" then
-          return true
-        end
-
-        if bo.filetype == "lazy" or bo.filetype:find("snacks", 1, true) then
-          return true
-        end
-
-        return false
-      end
-
-      local dashboard_group = vim.api.nvim_create_augroup("SnacksDashboardEvents", { clear = true })
-
-      -- open tree when leaving the dashboard
-      vim.api.nvim_create_autocmd("BufLeave", {
-        pattern = "*",
-        group = dashboard_group,
-        callback = function(event)
-          if vim.bo[event.buf].filetype ~= "snacks_dashboard" then
-            return
-          end
-
-          vim.api.nvim_create_autocmd("BufEnter", {
-            pattern = "*",
-            group = dashboard_group,
-            once = true,
-            callback = function()
-              if should_skip_buffer() then
-                return
-              end
-
-              vim.schedule(function()
-                -- open tree
-                require("nvim-tree.api").tree.toggle({ focus = false })
-              end)
-
-              -- cleanup
-              vim.api.nvim_clear_autocmds({ group = dashboard_group })
-            end,
-          })
-        end,
-      })
-    end,
-
     keys = {
+      -- dont focus explorer on open
+      {
+        "<leader>e",
+        function()
+          Snacks.explorer({ cwd = LazyVim.root(), focus = false })
+        end,
+        desc = "Explorer Snacks (root dir)",
+      },
+      {
+        "<leader>E",
+        function()
+          Snacks.explorer({ focus = false })
+        end,
+        desc = "Explorer Snacks (cwd)",
+      },
       -- todo list
       {
         "<leader>t",
         function()
-          Snacks.scratch({ icon = " ", name = "Todo", ft = "markdown", file = LazyVim.root() .. "/TODO.md" })
+          Snacks.scratch({
+            icon = " ",
+            name = "Todo",
+            ft = "markdown",
+            file = os.getenv("HOME") .. "/Documents/dev/TODO.md",
+          })
         end,
         desc = "Todo List",
       },
