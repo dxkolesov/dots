@@ -6,11 +6,7 @@
 local autocmd = vim.api.nvim_create_autocmd
 
 -- dont add comments on new lines
-autocmd("BufEnter", {
-  pattern = "*",
-  command = "set formatoptions-=cro",
-})
-
+vim.opt.formatoptions:remove({ "c", "r", "o" })
 autocmd("BufEnter", {
   pattern = "*",
   command = "setlocal formatoptions-=cro",
