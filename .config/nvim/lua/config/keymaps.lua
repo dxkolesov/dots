@@ -15,24 +15,35 @@ set("n", "n", "nzzzv", { desc = "Next search result centered", silent = true })
 set("n", "N", "Nzzzv", { desc = "Previous search result centered", silent = true })
 set("n", "G", "Gzz", { desc = "Go to bottom and center", silent = true })
 
--- yank path
-set("n", "<leader>y", "", { desc = "+yank" })
-set("n", "<leader>yp", function()
-  vim.fn.setreg("+", vim.fn.expand("%"))
-  vim.notify("Copied file path: " .. vim.fn.expand("%"))
-end, { desc = "Yank current file's path" })
+-- ai agent path
+local function get_ai_path()
+  local full_path = vim.fn.expand("%:p")
+  local cwd = vim.fn.getcwd()
+  return full_path:gsub("^" .. vim.pesc(cwd) .. "/", "@")
+end
 
-set("n", "<leader>yP", function()
-  vim.fn.setreg("+", vim.fn.expand("%:p"))
-  vim.notify("Copied absolute path: " .. vim.fn.expand("%:p"))
-end, { desc = "Yank current file's absolute path" })
+local function copy_ai_path(path)
+  vim.fn.setreg("+", path .. " ")
+  vim.notify("Copied AI agent path: " .. path)
+end
 
-set("n", "<leader>yn", function()
-  vim.fn.setreg("+", vim.fn.expand("%:t:r"))
-  vim.notify("Copied filename: " .. vim.fn.expand("%:t:r"))
-end, { desc = "Yank current file's filename" })
+set("n", "<leader>a", "", { desc = "+ai", silent = true })
+set("v", "<leader>a", "", { desc = "+ai", silent = true })
 
-set("n", "<leader>yN", function()
-  vim.fn.setreg("+", vim.fn.expand("%:t"))
-  vim.notify("Copied filename with ext: " .. vim.fn.expand("%:t"))
-end, { desc = "Yank current file's filename with ext" })
+set("n", "<leader>as", function()
+  local ai_path = get_ai_path()
+  copy_ai_path(ai_path)
+end, { desc = "Copy path for AI terminal agents" })
+
+set("v", "<leader>as", function()
+  local ai_path = get_ai_path()
+  local start_line = vim.fn.line("v")
+  local end_line = vim.fn.line(".")
+  local path_with_lines = ai_path .. " L" .. start_line .. "-" .. end_line
+
+  copy_ai_path(path_with_lines .. " ")
+
+  vim.defer_fn(function()
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
+  end, 10)
+end, { desc = "Copy path with line numbers for AI terminal agents" })
