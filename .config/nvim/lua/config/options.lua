@@ -9,5 +9,6 @@ vim.o.showmode = true
 vim.o.ruler = true
 vim.o.statusline = "%<%f %h%m%r%=%-14.(%l:%L, %c%V%) %P"
 vim.o.spelllang = "en,ru"
+vim.o.conceallevel = 0
 
 vim.g.deprecation_warnings = true

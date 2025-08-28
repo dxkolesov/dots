@@ -4,6 +4,9 @@ return {
   { "nvim-neo-tree/neo-tree.nvim", enabled = false },
   { "akinsho/bufferline.nvim", enabled = false },
 
+  -- markdown extras
+  { "MeanderingProgrammer/render-markdown.nvim", enabled = false },
+
   -- colorschemes
   { "folke/tokyonight.nvim", enabled = false },
   { "catppuccin/nvim", enabled = false },
