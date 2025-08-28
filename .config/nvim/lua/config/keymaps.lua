@@ -39,9 +39,11 @@ set("v", "<leader>as", function()
   local ai_path = get_ai_path()
   local start_line = vim.fn.line("v")
   local end_line = vim.fn.line(".")
-  local path_with_lines = ai_path .. " L" .. start_line .. "-" .. end_line
+  local min_line = math.min(start_line, end_line)
+  local max_line = math.max(start_line, end_line)
+  local path_with_lines = ai_path .. " L" .. min_line .. (min_line == max_line and "" or "-" .. max_line)
 
-  copy_ai_path(path_with_lines .. " ")
+  copy_ai_path(path_with_lines)
 
   vim.defer_fn(function()
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
