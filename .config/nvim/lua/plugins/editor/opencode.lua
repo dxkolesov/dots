@@ -1,6 +1,10 @@
 return {
   {
     "NickvanDyke/opencode.nvim",
+    dependencies = {
+      -- Recommended for better prompt input, and required to use `opencode.nvim`'s embedded terminal — otherwise optional
+      { "folke/snacks.nvim", opts = { input = { enabled = true } } },
+    },
     keys = {
       { "<leader>a", "", desc = "+ai", mode = { "n", "v" } },
       {
@@ -51,6 +55,7 @@ return {
         function()
           require("opencode").command("messages_half_page_up")
         end,
+        mode = { "n", "v" },
         desc = "Messages half page up",
       },
       {
@@ -58,6 +63,7 @@ return {
         function()
           require("opencode").command("messages_half_page_down")
         end,
+        mode = { "n", "v" },
         desc = "Messages half page down",
       },
       {
@@ -73,6 +79,14 @@ return {
         function()
           require("opencode").prompt("Explain @cursor and its context")
         end,
+        desc = "Explain this code",
+      },
+      {
+        "<leader>ae",
+        function()
+          require("opencode").prompt("Explain @selection and its context")
+        end,
+        mode = { "v" },
         desc = "Explain this code",
       },
     },
