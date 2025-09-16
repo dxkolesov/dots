@@ -2,9 +2,6 @@ return {
   {
     "folke/snacks.nvim",
     opts = function(_, opts)
-      -- input
-      opts.input = { enabled = false }
-
       -- scroll
       opts.scroll = { enabled = false }
 

@@ -19,37 +19,3 @@ set("n", "<C-left>", "<C-w><")
 set("n", "<C-right>", "<C-w>>")
 set("n", "<C-up>", "<C-w>+")
 set("n", "<C-down>", "<C-w>-")
-
--- ai agent path
-local function get_ai_path()
-  local full_path = vim.fn.expand("%:p")
-  local cwd = vim.fn.getcwd()
-  return full_path:gsub("^" .. vim.pesc(cwd) .. "/", "@")
-end
-
-local function copy_ai_path(path)
-  vim.fn.setreg("+", path .. " ")
-end
-
-set("n", "<leader>a", "", { desc = "+ai", silent = true })
-set("v", "<leader>a", "", { desc = "+ai", silent = true })
-
-set("n", "<leader>as", function()
-  local ai_path = get_ai_path()
-  copy_ai_path(ai_path)
-end, { desc = "copy path" })
-
-set("v", "<leader>as", function()
-  local ai_path = get_ai_path()
-  local start_line = vim.fn.line("v")
-  local end_line = vim.fn.line(".")
-  local min_line = math.min(start_line, end_line)
-  local max_line = math.max(start_line, end_line)
-  local path_with_lines = ai_path .. " L" .. min_line .. (min_line == max_line and "" or "-" .. max_line)
-
-  copy_ai_path(path_with_lines)
-
-  vim.defer_fn(function()
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
-  end, 10)
-end, { desc = "copy path" })
