@@ -1,7 +1,7 @@
 return {
   -- mason border
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = {
       ui = {
         border = "rounded",

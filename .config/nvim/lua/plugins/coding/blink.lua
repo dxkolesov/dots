@@ -30,13 +30,6 @@ return {
       },
 
       cmdline = {
-        enabled = true,
-        completion = {
-          menu = { auto_show = true },
-          list = {
-            selection = { preselect = false, auto_insert = true },
-          },
-        },
         keymap = {
           preset = "none",
           ["<CR>"] = { "accept_and_enter", "fallback" },
@@ -64,22 +57,22 @@ return {
   },
 
   -- git source
-  -- {
-  --   "saghen/blink.cmp",
-  --   optional = true,
-  --   dependencies = { "Kaiser-Yang/blink-cmp-git" },
-  --   opts = {
-  --     sources = {
-  --       default = { "git" },
-  --       providers = {
-  --         git = {
-  --           module = "blink-cmp-git",
-  --           name = "Git",
-  --         },
-  --       },
-  --     },
-  --   },
-  -- },
+  {
+    "saghen/blink.cmp",
+    optional = true,
+    dependencies = { "Kaiser-Yang/blink-cmp-git" },
+    opts = {
+      sources = {
+        default = { "git" },
+        providers = {
+          git = {
+            module = "blink-cmp-git",
+            name = "Git",
+          },
+        },
+      },
+    },
+  },
 
   -- packages.json source
   {
