@@ -1,10 +1,37 @@
 return {
   {
-    "NickvanDyke/opencode.nvim",
-    dependencies = {
-      -- Recommended for better prompt input, and required to use `opencode.nvim`'s embedded terminal — otherwise optional
-      { "folke/snacks.nvim", opts = { input = { enabled = true } } },
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    build = ":Copilot auth",
+    event = "BufReadPost",
+    opts = {
+      suggestion = {
+        auto_trigger = true,
+      },
+      filetypes = { ["*"] = true },
     },
+  },
+
+  -- {
+  --   "supermaven-inc/supermaven-nvim",
+  --   event = "InsertEnter",
+  --   cmd = {
+  --     "SupermavenUseFree",
+  --     "SupermavenUsePro",
+  --   },
+  --   opts = {
+  --     keymaps = {
+  --       accept_suggestion = "<M-l>",
+  --       clear_suggestion = "<C-]>",
+  --       accept_word = "<Nop>",
+  --     },
+  --
+  --     ignore_filetypes = { "bigfile", "snacks_input", "snacks_notif" },
+  --   },
+  -- },
+
+  {
+    "NickvanDyke/opencode.nvim",
     keys = {
       { "<leader>a", "", desc = "+ai", mode = { "n", "v" } },
       {
